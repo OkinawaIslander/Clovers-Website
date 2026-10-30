@@ -1,0 +1,30 @@
+# 本地配置（含数据库 / SMTP / 密钥，绝对不要提交）
+api/config.php
+api/config.local.php
+
+# 服务器面板生成的本地配置
+.user.ini
+
+# 上传文件（保留说明文件）
+uploads/*
+!uploads/README.txt
+
+# 体积较大的本地番剧快照（可按 data/README.txt 自行下载）
+data/bangumi-data.json
+
+# 未使用的旧海报 / 旧小游戏占位文件
+images/海报.png
+js/galgame.js
+css/galgame.css
+
+# 依赖 / 编辑器 / 系统文件
+node_modules/
+vendor/
+.env
+.env.*
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+.idea/
+.vscode/

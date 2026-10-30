@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>四叶草幸存者 | Clovers' 动漫协会</title>
+  <meta name="description" content="四叶草幸存者：WASD 移动，自动攻击，升级词条，在枯叶堆里活过 3 分钟。" />
+  <link rel="stylesheet" href="css/style.css?v=20261031a" />
+  <link rel="stylesheet" href="css/survivors.css?v=20261031a" />
+  <link rel="icon" href="images/社团标志.jpg" />
+</head>
+<body class="sv-body">
+  <canvas id="svCanvas" aria-label="四叶草幸存者游戏画面"></canvas>
+
+  <div class="sv-hud">
+    <div class="sv-hud-left">
+      <div class="sv-hp-row">
+        <span class="sv-hp-label">HP</span>
+        <div class="sv-bar sv-hp"><i id="svHpFill"></i></div>
+        <span class="sv-hp-text" id="svHpText">100 / 100</span>
+      </div>
+      <div class="sv-xp-row">
+        <span class="sv-lv" id="svLevel">Lv.1</span>
+        <div class="sv-bar sv-xp"><i id="svXpFill"></i></div>
+      </div>
+    </div>
+    <div class="sv-hud-center">
+      <strong id="svTimer">03:00</strong>
+      <span>存活时间</span>
+    </div>
+    <div class="sv-hud-right">
+      <span>🔥 <b id="svHeat">--</b></span>
+      <span>击杀 <b id="svKills">0</b></span>
+      <a href="index.html" class="sv-back">← 首页</a>
+    </div>
+  </div>
+
+  <div class="sv-joystick" id="svJoystick" aria-hidden="true">
+    <div class="sv-joy-base">
+      <div class="sv-joy-knob" id="svJoyKnob"></div>
+    </div>
+  </div>
+
+  <section class="sv-overlay" id="svStart">
+    <div class="sv-start-card">
+      <img class="sv-logo" src="images/社团标志.jpg" alt="Clovers" />
+      <p class="sv-kicker">CLOVERS · SURVIVORS</p>
+      <h1>四叶草幸存者</h1>
+      <p class="sv-sub">WASD / 方向键移动 · 自动攻击 · 升级选词条 · 活过 3 分钟</p>
+      <div class="sv-how">
+        <div><b>🍀</b><span>四叶草弹</span><em>自动射向最近的敌人</em></div>
+        <div><b>🪄</b><span>光棒</span><em>绕着角色旋转，碰到就掉血</em></div>
+        <div><b>🍂</b><span>枯叶堆</span><em>越到后面越密，2 分钟有 Boss</em></div>
+      </div>
+      <button type="button" class="sv-btn" id="svStartBtn">开始游戏</button>
+      <p class="sv-best" id="svBest">最高纪录：0 秒</p>
+      <p class="sv-small">手机使用左下角摇杆移动；P / Esc 暂停。</p>
+    </div>
+  </section>
+
+  <section class="sv-modal" id="svLevelModal" hidden>
+    <div class="sv-modal-card">
+      <p class="sv-kicker">LEVEL UP</p>
+      <h2>选一个强化</h2>
+      <div class="sv-upgrades" id="svUpgrades"></div>
+    </div>
+  </section>
+
+  <section class="sv-overlay" id="svPause" hidden>
+    <div class="sv-pause-card">
+      <p class="sv-kicker">PAUSED</p>
+      <h2>暂停中</h2>
+      <button type="button" class="sv-btn" id="svResumeBtn">继续</button>
+      <button type="button" class="sv-btn sv-btn-ghost" id="svQuitBtn">回到首页</button>
+    </div>
+  </section>
+
+  <section class="sv-overlay" id="svEnd" hidden>
+    <div class="sv-end-card">
+      <p class="sv-kicker" id="svEndKicker">GAME OVER</p>
+      <h2 id="svEndTitle">被枯叶埋住了</h2>
+      <p class="sv-end-stats" id="svEndStats"></p>
+      <p class="sv-heat-result" id="svHeatResult"></p>
+      <button type="button" class="sv-btn" id="svAgainBtn">再来一局</button>
+      <a class="sv-btn sv-btn-ghost" href="index.html">回到首页</a>
+    </div>
+  </section>
+
+  <script src="js/survivors.js?v=20261031b"></script>
+</body>
+</html>

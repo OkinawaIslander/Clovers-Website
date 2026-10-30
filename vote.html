@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>投票 | Clovers' 动漫协会</title>
+  <meta name="description" content="Clovers' 动漫协会投票 - 管理员发起，成员一人一票，实时统计。" />
+  <link rel="stylesheet" href="css/style.css?v=20261029a" />
+  <link rel="stylesheet" href="css/pages.css?v=20261029a" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🍀</span>
+        <span class="logo-text">大学生Clovers'动漫协会</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">首页</a></li>
+        <li><a href="index.html#departments" class="nav-link">部门</a></li>
+        <li><a href="game.html" class="nav-link">交易所</a></li>
+        <li><a href="anime.html" class="nav-link">新番</a></li>
+        <li><a href="vote.html" class="nav-link active">投票</a></li>
+        <li><a href="works.html" class="nav-link">作品</a></li>
+        <li><a href="index.html#board" class="nav-link">留言板</a></li>
+        <li><a href="profile.html" class="nav-link" id="authNavBtn">我的</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <p class="kicker">CLOVERS VOTE</p>
+      <h1>投票</h1>
+      <p class="hero-desc-sm">管理员发起，成员一人一票。开始前不可投，截止后自动结算。</p>
+      <div class="vote-actions">
+        <button class="btn btn-primary btn-sm" id="newPollBtn" type="button" hidden>发起投票</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div id="pollList">
+        <p class="muted">加载中...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- 发起投票 -->
+  <div class="modal-mask" id="pollModal">
+    <div class="modal-box">
+      <button class="modal-close" id="pollClose" type="button" aria-label="关闭">×</button>
+      <h3>发起投票</h3>
+      <form class="add-form" id="pollForm">
+        <label>标题<input id="pollTitle" maxlength="160" required /></label>
+        <label>说明（可选）<input id="pollDesc" maxlength="500" /></label>
+        <label>选项（一行一个，2-10 个）<textarea id="pollOptions" rows="5" placeholder="选项一&#10;选项二&#10;选项三" required></textarea></label>
+        <label>开始时间<input id="pollStart" type="datetime-local" /></label>
+        <label>截止时间<input id="pollEnd" type="datetime-local" /></label>
+        <button class="btn btn-primary btn-sm" type="submit">创建投票</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">🍀</span>
+          <strong>Clovers' 动漫协会</strong>
+          <p>浙江农林大学 · 二次元同好社团</p>
+        </div>
+        <div class="footer-links">
+          <p>部门主页</p>
+          <a href="xuanbian.html">宣编部</a>
+          <a href="zhaiwu.html">宅舞部</a>
+          <a href="wota.html">WOTA艺部</a>
+          <a href="zhuoyou.html">桌游部</a>
+        </div>
+        <div class="footer-links">
+          <p>更多</p>
+          <a href="vote.html">投票</a>
+          <a href="submit.html">社刊投稿</a>
+          <a href="anime.html">本季新番</a>
+          <a href="profile.html">我的</a>
+        </div>
+      </div>
+      <p class="copyright">© 2004-2026 Clovers' 动漫协会 · Made by Okinawa for Clovers</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/common.js?v=20261029a"></script>
+  <script src="js/vote.js?v=20261029a"></script>
+</body>
+</html>

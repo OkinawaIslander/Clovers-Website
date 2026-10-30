@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>热力交易所 | Clovers' 动漫协会</title>
+  <meta name="description" content="Clovers 热力交易所 - 用小游戏和农场赚到的热力值，做多 / 做空四大部门。老实建设社团很枯燥吧？" />
+  <link rel="stylesheet" href="css/style.css?v=20261031d" />
+  <link rel="stylesheet" href="css/game.css?v=20261031d" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>" />
+</head>
+<body class="exchange-body">
+  <!-- 导航 -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🍀</span>
+        <span class="logo-text">大学生Clovers'动漫协会</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">首页</a></li>
+        <li><a href="index.html#departments" class="nav-link">部门</a></li>
+        <li><a href="game.html" class="nav-link active">交易所</a></li>
+        <li><a href="anime.html" class="nav-link">新番</a></li>
+        <li><a href="vote.html" class="nav-link">投票</a></li>
+        <li><a href="works.html" class="nav-link">作品</a></li>
+        <li><a href="index.html#board" class="nav-link">留言板</a></li>
+        <li><a href="profile.html" class="nav-link" id="authNavBtn">我的</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 头图 -->
+  <header class="fx-hero">
+    <div class="container">
+      <p class="fx-kicker">CLOVERS HEAT EXCHANGE · 模拟盘</p>
+      <h1>老实建设社团很枯燥吧</h1>
+      <p class="fx-sub">把四叶草幸存者和像素农场的收益变成「热力值」，做多 / 做空四大部门。<br />看看谁最会把热爱，变成资产。</p>
+
+      <div class="fx-stats">
+        <div class="fx-stat">
+          <span>我的热力值</span>
+          <strong id="heatValue">--</strong>
+        </div>
+        <div class="fx-stat">
+          <span>净资产</span>
+          <strong id="netWorth">--</strong>
+        </div>
+        <div class="fx-stat">
+          <span>今日签到</span>
+          <button id="checkinBtn" class="fx-checkin" type="button">签到 +100</button>
+        </div>
+        <div class="fx-stat">
+          <span>开仓时段</span>
+          <strong id="windowState">--</strong>
+        </div>
+      </div>
+
+      <p class="fx-login" id="loginTip">登录后可交易 · <a href="index.html#auth">去登录 / 注册</a></p>
+      <p class="fx-alert" id="bankruptBanner" hidden>💥 已破产清算：热力值见底，明天签到可以领救济。</p>
+    </div>
+  </header>
+
+  <main class="fx-main">
+    <div class="container">
+      <!-- tabs -->
+      <div class="fx-tabs" role="tablist">
+        <button class="fx-tab active" data-tab="market" type="button">行情</button>
+        <button class="fx-tab" data-tab="positions" type="button">持仓 <em id="posCount">0</em></button>
+        <button class="fx-tab" data-tab="leaderboard" type="button">排行榜</button>
+        <button class="fx-tab" data-tab="rules" type="button">玩法</button>
+      </div>
+
+      <!-- 行情 -->
+      <section class="fx-panel active" id="panel-market">
+        <div class="fx-market-head">
+          <div>
+            <h2>四大部门 · 热力指数</h2>
+            <p class="fx-muted">12:00 - 18:00 可买入 / 做空；平仓随时可以，但有杠杆冷却。点每行的「走势」看 5 分钟 / 每小时 / 每天的折线图。</p>
+          </div>
+          <button class="fx-refresh" id="refreshBtn" type="button">刷新行情</button>
+        </div>
+        <div class="fx-market-list" id="marketList">
+          <p class="fx-muted">加载中...</p>
+        </div>
+
+        <!-- 小游戏入口 -->
+        <div class="fx-game-links">
+          <a class="fx-game-link" href="survivors.html"><span>🍀</span><b>四叶草幸存者</b><em>3 分钟生存</em></a>
+          <a class="fx-game-link" href="farm.html"><span>🥕</span><b>像素农场</b><em>种菜 / 偷菜</em></a>
+        </div>
+      </section>
+
+      <!-- 持仓 -->
+      <section class="fx-panel" id="panel-positions">
+        <div class="fx-market-head">
+          <h2>我的持仓</h2>
+          <p class="fx-muted">冷却结束前不能平仓；浮亏到保证金一半会被强制结算。</p>
+        </div>
+        <div id="positionsList"><p class="fx-muted">加载中...</p></div>
+        <p class="fx-muted fx-small" style="margin-top:10px;">持仓盈亏按中间价计算；实际开仓/平仓按买价/卖价成交，会有一点差。</p>
+      </section>
+
+      <!-- 排行榜 -->
+      <section class="fx-panel" id="panel-leaderboard">
+        <div class="fx-subtabs">
+          <button class="fx-subtab active" data-rank="net" type="button">资产榜</button>
+          <button class="fx-subtab" data-rank="profit" type="button">收益率榜</button>
+        </div>
+        <div id="leaderList"><p class="fx-muted">加载中...</p></div>
+      </section>
+
+      <!-- 玩法 -->
+      <section class="fx-panel" id="panel-rules">
+        <h2>玩法说明</h2>
+        <div class="fx-rules">
+          <div class="fx-rule">
+            <h4>1. 热力值从哪来</h4>
+            <p>小游戏得分兑换（幸存者每天上限 1200）、农场买卖、每日签到（100 起，连续签到加 20，最多 200）、管理员偶尔发放。</p>
+          </div>
+          <div class="fx-rule">
+            <h4>2. 怎么交易</h4>
+            <p>每天 <strong>12:00 - 18:00</strong> 可以买入（做多）和做空；平仓不受时段限制。买入是价格涨了赚、跌了亏；做空反过来。每笔开仓 / 平仓都会按名义价值推动价格，金额越大涨跌越明显。</p>
+          </div>
+          <div class="fx-rule">
+            <h4>3. 杠杆与冷却</h4>
+            <p>1x / 2x / 4x / 5x / 10x。杠杆越高，能撬动的仓位越大，但平仓冷却越长：1x 1 天、2x 36 小时、4x 2 天、5x 60 小时、10x 3 天。</p>
+          </div>
+          <div class="fx-rule">
+            <h4>4. 强平与破产</h4>
+            <p>账户权益（保证金 + 浮动盈亏）跌到保证金的 <strong>50%</strong> 时自动强制结算，退回剩余权益。热力值归零就是破产清算，靠明天签到翻身。</p>
+          </div>
+          <div class="fx-rule">
+            <h4>5. 注意</h4>
+            <p>这是社团娱乐用的模拟盘，不涉及任何真实货币。行情由服务器随机生成并受大家交易冲击，管理员可以手动修正异常价格。</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- 交易弹窗 -->
+  <div class="fx-modal" id="tradeModal" aria-hidden="true">
+    <div class="fx-modal-box" role="dialog" aria-modal="true">
+      <button class="fx-modal-close" id="tradeClose" type="button" aria-label="关闭">×</button>
+      <h3 id="tradeTitle">买入 宣编部</h3>
+      <p class="fx-muted" id="tradePrice">现价 --</p>
+
+      <label class="fx-label" for="tradeMargin">保证金（热力值）</label>
+      <input class="fx-input" type="number" id="tradeMargin" min="10" step="10" value="100" />
+      <div class="fx-quick">
+        <button type="button" data-pct="25">25%</button>
+        <button type="button" data-pct="50">50%</button>
+        <button type="button" data-pct="100">全部</button>
+      </div>
+
+      <label class="fx-label">杠杆</label>
+      <div class="fx-lev" id="levRow"></div>
+
+      <div class="fx-summary" id="tradeSummary"></div>
+
+      <button class="btn btn-primary btn-block" id="tradeSubmit" type="button">确认开仓</button>
+      <p class="fx-muted fx-small" id="tradeHint"></p>
+    </div>
+  </div>
+
+  <!-- 走势图弹窗 -->
+  <div class="fx-modal" id="chartModal" aria-hidden="true">
+    <div class="fx-modal-box fx-chart-box" role="dialog" aria-modal="true">
+      <button class="fx-modal-close" id="chartClose" type="button" aria-label="关闭">×</button>
+      <div class="fx-chart-head">
+        <div>
+          <h3 id="chartTitle">部门走势</h3>
+          <p class="fx-muted" id="chartSub"></p>
+        </div>
+        <div class="fx-chart-price" id="chartPrice">--</div>
+      </div>
+      <div class="fx-periods" id="chartPeriods">
+        <button type="button" data-period="5m" class="active">5 分钟</button>
+        <button type="button" data-period="1h">每小时</button>
+        <button type="button" data-period="1d">每天</button>
+      </div>
+      <div class="fx-chart-wrap" id="chartWrap">
+        <svg id="chartSvg" viewBox="0 0 760 300" role="img" aria-label="热力值走势"></svg>
+        <div class="fx-chart-tip" id="chartTip" hidden></div>
+      </div>
+      <p class="fx-muted fx-small" id="chartMeta" style="margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">🍀</span>
+          <strong>Clovers' 动漫协会</strong>
+          <p>浙江农林大学 · 二次元同好社团</p>
+        </div>
+        <div class="footer-links">
+          <p>部门主页</p>
+          <a href="xuanbian.html">宣编部</a>
+          <a href="zhaiwu.html">宅舞部</a>
+          <a href="wota.html">WOTA艺部</a>
+          <a href="zhuoyou.html">桌游部</a>
+        </div>
+        <div class="footer-links">
+          <p>更多</p>
+          <a href="anime.html">本季新番</a>
+          <a href="index.html#board">留言板</a>
+          <a href="profile.html">个人主页</a>
+        </div>
+      </div>
+      <p class="copyright">© 2004-2026 Clovers' 动漫协会 · Made by Okinawa for Clovers</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/common.js?v=20261031c"></script>
+  <script src="js/game.js?v=20261031c"></script>
+</body>
+</html>

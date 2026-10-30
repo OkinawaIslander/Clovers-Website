@@ -1,0 +1,988 @@
+/* ===== Clovers 热力交易所 ===== */
+.exchange-body {
+  background: #0b1117;
+  color: #dbe6ea;
+}
+
+.exchange-body .navbar {
+  background: rgba(11, 17, 23, 0.88);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.exchange-body .logo,
+.exchange-body .nav-link {
+  color: #dbe6ea;
+}
+
+.exchange-body .logo {
+  color: #8fe3b0;
+}
+
+.exchange-body .nav-link:hover,
+.exchange-body .nav-link.active {
+  background: rgba(76, 175, 110, 0.16);
+  color: #b8f5cf;
+}
+
+.exchange-body .hamburger span {
+  background: #dbe6ea;
+}
+
+.exchange-body .hamburger {
+  display: none;
+}
+
+.fx-hero {
+  padding: 120px 0 46px;
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(56, 189, 248, 0.13) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 15%, rgba(76, 175, 110, 0.14) 0%, transparent 55%),
+    linear-gradient(180deg, #0d1620 0%, #0b1117 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.fx-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  color: #6f8a97;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.fx-hero h1 {
+  font-size: clamp(1.9rem, 4.6vw, 3rem);
+  line-height: 1.15;
+  font-weight: 800;
+  background: linear-gradient(120deg, #f5f7d6, #8fe3b0 45%, #67c3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fx-sub {
+  margin-top: 12px;
+  color: #93a7b3;
+  font-size: 1rem;
+  max-width: 640px;
+}
+
+.fx-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+  max-width: 860px;
+}
+
+.fx-stat {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.fx-stat span {
+  display: block;
+  font-size: 0.78rem;
+  color: #7f95a1;
+  margin-bottom: 6px;
+}
+
+.fx-stat strong {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #e9f4ef;
+  font-variant-numeric: tabular-nums;
+}
+
+.fx-checkin {
+  border: 0;
+  background: linear-gradient(135deg, #2d8f4e, #4caf6e);
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.fx-checkin:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.fx-login {
+  margin-top: 16px;
+  color: #7f95a1;
+  font-size: 0.9rem;
+}
+
+.fx-login a {
+  color: #8fe3b0;
+}
+
+.fx-alert {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #ffb4b4;
+  font-size: 0.9rem;
+}
+
+.fx-main {
+  padding: 26px 0 70px;
+}
+
+.fx-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 20px;
+}
+
+.fx-tab {
+  background: none;
+  border: 0;
+  color: #8ea3ae;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.fx-tab.active {
+  color: #b8f5cf;
+  border-bottom-color: #4caf6e;
+}
+
+.fx-tab em {
+  font-style: normal;
+  background: rgba(76, 175, 110, 0.2);
+  color: #8fe3b0;
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-size: 0.75rem;
+  margin-left: 2px;
+}
+
+.fx-panel {
+  display: none;
+}
+
+.fx-panel.active {
+  display: block;
+}
+
+.fx-market-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.fx-market-head h2 {
+  font-size: 1.1rem;
+  color: #e9f4ef;
+  margin-bottom: 4px;
+}
+
+.fx-muted {
+  color: #7f95a1;
+  font-size: 0.86rem;
+}
+
+.fx-small {
+  font-size: 0.78rem;
+}
+
+.fx-refresh {
+  background: rgba(255, 255, 255, 0.06);
+  color: #cfe4da;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.fx-refresh:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.fx-market-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fx-market-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 1.3fr) 110px 96px 120px minmax(120px, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: #111c26;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+}
+
+.fx-market-row:hover {
+  border-color: rgba(76, 175, 110, 0.4);
+  background: #13202b;
+}
+
+.fx-symbol {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.fx-symbol .ico {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.fx-symbol strong {
+  display: block;
+  color: #eaf6ef;
+  font-size: 1rem;
+}
+
+.fx-symbol span {
+  display: block;
+  color: #6f8a97;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fx-price {
+  font-size: 1.22rem;
+  font-weight: 800;
+  color: #f0f6f2;
+  font-variant-numeric: tabular-nums;
+}
+
+.fx-change {
+  font-size: 0.86rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.fx-change.up,
+.feed-amount.up,
+.pnl.up {
+  color: #4ade80;
+}
+
+.fx-change.down,
+.feed-amount.down,
+.pnl.down {
+  color: #f87171;
+}
+
+.fx-spark {
+  display: flex;
+  justify-content: center;
+}
+
+.fx-pos-badge {
+  font-size: 0.78rem;
+  color: #9fb6c2;
+  line-height: 1.4;
+}
+
+.fx-pos-badge b {
+  color: #d9efe3;
+}
+
+.fx-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.fx-btn-buy,
+.fx-btn-short {
+  border: 0;
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.fx-btn-buy {
+  background: linear-gradient(135deg, #1f8f4d, #35c46f);
+  color: #fff;
+}
+
+.fx-btn-short {
+  background: linear-gradient(135deg, #a33b3b, #e05656);
+  color: #fff;
+}
+
+.fx-btn-buy:disabled,
+.fx-btn-short:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* 热身小游戏 */
+.fx-warmup {
+  margin-top: 26px;
+  background: #111c26;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.fx-warmup-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.fx-warmup-head h3 {
+  font-size: 1.02rem;
+  color: #e9f4ef;
+  margin-bottom: 4px;
+}
+
+.fx-mini-stats {
+  display: flex;
+  gap: 18px;
+  color: #7f95a1;
+  font-size: 0.82rem;
+  align-items: center;
+}
+
+.fx-mini-stats strong {
+  color: #e9f4ef;
+  font-size: 1rem;
+}
+
+.fx-game-area {
+  position: relative;
+  height: 300px;
+  border-radius: 12px;
+  border: 2px solid rgba(76, 175, 110, 0.45);
+  background: radial-gradient(ellipse at 50% 30%, #14301f 0%, #0d1a14 70%);
+  overflow: hidden;
+}
+
+.fx-game-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(6, 12, 9, 0.55);
+  text-align: center;
+  color: #9fb6c2;
+  font-size: 0.85rem;
+}
+
+.fx-game-item {
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.12s, opacity 0.2s;
+  z-index: 2;
+  animation: fxPop 0.2s ease;
+}
+
+@keyframes fxPop {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* 持仓 */
+.fx-position {
+  display: grid;
+  grid-template-columns: minmax(130px, 1.2fr) repeat(5, minmax(74px, 0.8fr)) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 14px 16px;
+  background: #111c26;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  margin-bottom: 10px;
+  font-size: 0.86rem;
+}
+
+.fx-position .val {
+  color: #dbe6ea;
+  font-variant-numeric: tabular-nums;
+}
+
+.fx-position .lbl {
+  display: block;
+  color: #6f8a97;
+  font-size: 0.7rem;
+  margin-bottom: 2px;
+}
+
+.fx-direction {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.fx-direction.long {
+  background: rgba(74, 222, 128, 0.14);
+  color: #4ade80;
+}
+
+.fx-direction.short {
+  background: rgba(248, 113, 113, 0.14);
+  color: #f87171;
+}
+
+.fx-close-btn {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: #cfe4da;
+  border-radius: 9px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.82rem;
+}
+
+.fx-close-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.fx-empty {
+  padding: 34px 18px;
+  text-align: center;
+  color: #7f95a1;
+  background: #111c26;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+}
+
+/* 排行榜 */
+.fx-subtabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.fx-subtab {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #9fb6c2;
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 0.84rem;
+  cursor: pointer;
+}
+
+.fx-subtab.active {
+  background: rgba(76, 175, 110, 0.2);
+  border-color: rgba(76, 175, 110, 0.5);
+  color: #b8f5cf;
+}
+
+.fx-rank-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #111c26;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.fx-rank-table th,
+.fx-rank-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.88rem;
+}
+
+.fx-rank-table th {
+  color: #7f95a1;
+  font-weight: 600;
+  font-size: 0.78rem;
+}
+
+.fx-rank-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.fx-rank-table .rank-no {
+  color: #8fe3b0;
+  font-weight: 800;
+  width: 54px;
+}
+
+.fx-rank-table a {
+  color: #dbe6ea;
+}
+
+.fx-rank-table a:hover {
+  color: #8fe3b0;
+}
+
+/* 动态 */
+.feed-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feed-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  background: #111c26;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  font-size: 0.86rem;
+  color: #b9cbd3;
+  flex-wrap: wrap;
+}
+
+.feed-type {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #9fb6c2;
+}
+
+.feed-type.type-open,
+.feed-type.type-close {
+  background: rgba(56, 189, 248, 0.12);
+  color: #7dd3fc;
+}
+
+.feed-type.type-liquidation {
+  background: rgba(248, 113, 113, 0.14);
+  color: #fca5a5;
+}
+
+.feed-type.type-checkin,
+.feed-type.type-game {
+  background: rgba(74, 222, 128, 0.12);
+  color: #86efac;
+}
+
+.feed-text {
+  flex: 1;
+  min-width: 180px;
+}
+
+.feed-text a {
+  color: #8fe3b0;
+}
+
+.feed-amount {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.feed-time {
+  color: #6f8a97;
+  font-size: 0.76rem;
+}
+
+.feed-empty {
+  padding: 30px;
+  text-align: center;
+  color: #7f95a1;
+}
+
+/* 规则 */
+.fx-rules {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.fx-rule {
+  background: #111c26;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.fx-rule h4 {
+  color: #b8f5cf;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.fx-rule p {
+  color: #93a7b3;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.fx-rule strong {
+  color: #e9f4ef;
+}
+
+/* 交易弹窗 */
+.fx-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(4, 8, 6, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.fx-modal.open {
+  display: flex;
+}
+
+.fx-modal-box {
+  width: 100%;
+  max-width: 380px;
+  background: #101a23;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.fx-modal-box h3 {
+  color: #e9f4ef;
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+
+.fx-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: 0;
+  color: #7f95a1;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.fx-label {
+  display: block;
+  margin: 16px 0 6px;
+  font-size: 0.82rem;
+  color: #9fb6c2;
+}
+
+.fx-input {
+  width: 100%;
+  background: #0b1319;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  color: #e9f4ef;
+  padding: 11px 12px;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.fx-input:focus {
+  outline: none;
+  border-color: #4caf6e;
+}
+
+.fx-quick {
+  display: flex;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.fx-quick button {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #b9cbd3;
+  border-radius: 8px;
+  padding: 6px 0;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.fx-lev {
+  display: flex;
+  gap: 7px;
+}
+
+.fx-lev button {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #b9cbd3;
+  border-radius: 9px;
+  padding: 9px 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.fx-lev button.active {
+  background: rgba(76, 175, 110, 0.2);
+  border-color: #4caf6e;
+  color: #b8f5cf;
+}
+
+.fx-summary {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  color: #9fb6c2;
+  line-height: 1.7;
+}
+
+.fx-summary b {
+  color: #e9f4ef;
+}
+
+.fx-modal-box .btn-block {
+  margin-top: 16px;
+}
+
+.fx-modal-box .btn-primary {
+  background: linear-gradient(135deg, #1f8f4d, #35c46f);
+  border: 0;
+}
+
+/* 走势图 */
+.fx-spark {
+  cursor: pointer;
+}
+
+.fx-spark em {
+  display: block;
+  font-style: normal;
+  font-size: 0.66rem;
+  color: #6f8a97;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.fx-spark:hover em {
+  color: #8fe3b0;
+}
+
+.fx-spark:hover polyline {
+  stroke-width: 2.8;
+}
+
+.fx-chart-box {
+  max-width: 860px;
+  width: 100%;
+}
+
+.fx-chart-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fx-chart-head h3 {
+  color: #e9f4ef;
+  font-size: 1.15rem;
+  margin-bottom: 2px;
+}
+
+.fx-chart-price {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #e9f4ef;
+  font-variant-numeric: tabular-nums;
+}
+
+.fx-chart-price.up {
+  color: #4ade80;
+}
+
+.fx-chart-price.down {
+  color: #f87171;
+}
+
+.fx-periods {
+  display: flex;
+  gap: 6px;
+  margin: 16px 0 10px;
+}
+
+.fx-periods button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9fb6c2;
+  border-radius: 999px;
+  padding: 6px 15px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.fx-periods button.active {
+  background: rgba(76, 175, 110, 0.2);
+  border-color: #4caf6e;
+  color: #b8f5cf;
+}
+
+.fx-chart-wrap {
+  position: relative;
+  background: #0b1319;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+#chartSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+  touch-action: none;
+}
+
+.fx-chart-tip {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  background: #07100c;
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  border-radius: 8px;
+  padding: 6px 9px;
+  font-size: 0.76rem;
+  color: #dbe6ea;
+  white-space: nowrap;
+  transform: translate(-50%, -115%);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.fx-chart-tip b {
+  color: #8fe3b0;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .fx-market-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .fx-spark {
+    display: none;
+  }
+
+  .fx-actions {
+    grid-column: 1 / -1;
+    justify-content: stretch;
+  }
+
+  .fx-actions button {
+    flex: 1;
+  }
+
+  .fx-position {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fx-position .fx-close-wrap {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .exchange-body .hamburger {
+    display: flex;
+  }
+
+  .exchange-body .nav-links {
+    background: #0d1620;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .fx-hero {
+    padding-top: 100px;
+  }
+
+  .fx-stat strong {
+    font-size: 1.12rem;
+  }
+
+  .fx-tabs {
+    gap: 0;
+  }
+
+  .fx-tab {
+    flex: 1;
+    padding: 11px 8px;
+    font-size: 0.82rem;
+  }
+}
+
+.fx-game-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.fx-game-link {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px;
+  border: 1px solid rgba(126, 226, 168, 0.22);
+  background: rgba(126, 226, 168, 0.04);
+  color: #d8efe2;
+  transition: 0.2s;
+}
+
+.fx-game-link:hover {
+  background: rgba(126, 226, 168, 0.12);
+  border-color: #7ee2a8;
+}
+
+.fx-game-link span {
+  font-size: 1.2rem;
+}
+
+.fx-game-link b {
+  color: #b8f5cf;
+  font-size: 0.78rem;
+}
+
+.fx-game-link em {
+  font-style: normal;
+  color: #7fa48f;
+  font-size: 0.66rem;
+}
+
+@media (max-width: 620px) {
+  .fx-game-links {
+    grid-template-columns: 1fr;
+  }
+}

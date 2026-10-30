@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>本季新番 | Clovers' 动漫协会</title>
+  <meta name="description" content="Clovers' 动漫协会本季新番 - 每季度新番列表、Bangumi 链接、0-5 评分与大家的新番评论。" />
+  <link rel="stylesheet" href="css/style.css?v=20261031c" />
+  <link rel="stylesheet" href="css/pages.css?v=20261031c" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🍀</span>
+        <span class="logo-text">大学生Clovers'动漫协会</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">首页</a></li>
+        <li><a href="index.html#departments" class="nav-link">部门</a></li>
+        <li><a href="game.html" class="nav-link">交易所</a></li>
+        <li><a href="anime.html" class="nav-link active">新番</a></li>
+        <li><a href="vote.html" class="nav-link">投票</a></li>
+        <li><a href="works.html" class="nav-link">作品</a></li>
+        <li><a href="index.html#board" class="nav-link">留言板</a></li>
+        <li><a href="profile.html" class="nav-link" id="authNavBtn">我的</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-hero anime-hero">
+    <div class="container">
+      <p class="kicker">BANGUMI · 每季新番</p>
+      <h1>这季看什么</h1>
+      <p class="hero-desc-sm">数据来自 <a href="https://bgm.tv" target="_blank" rel="noopener">Bangumi 番组计划</a>，点开每部番可以看简介、跳转 Bangumi，也可以在下面留评论。</p>
+      <div class="season-tabs" id="seasonTabs"></div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="anime-toolbar">
+        <div>
+          <h2 class="anime-season-title" id="seasonTitle">加载中...</h2>
+          <p class="muted" id="seasonMeta"></p>
+        </div>
+        <div class="anime-tools">
+          <a class="btn btn-outline btn-sm" id="bgmSeasonLink" href="https://bgm.tv" target="_blank" rel="noopener">在 Bangumi 看本季 →</a>
+          <button class="btn btn-outline btn-sm" id="addBtn" type="button" hidden>手动添加</button>
+          <button class="btn btn-primary btn-sm" id="importBtn" type="button" hidden>从 Bangumi 导入本季</button>
+        </div>
+      </div>
+
+      <p class="anime-rating-legend">评分：0 未评分 · 1 拉完了 · 2 NPC · 3 人上人 · 4 顶级 · 5 夯</p>
+
+      <div class="anime-sort" id="animeSort">
+        <span class="anime-sort-label">排序</span>
+        <div class="anime-sort-btns">
+          <button type="button" class="anime-sort-btn active" data-sort="air">播出时间</button>
+          <button type="button" class="anime-sort-btn" data-sort="rating">评分</button>
+          <button type="button" class="anime-sort-btn" data-sort="comments">评论人数</button>
+        </div>
+        <button type="button" class="anime-dir" id="animeDir" data-dir="asc">正序 ↑</button>
+      </div>
+
+      <div class="anime-list" id="animeGrid">
+        <p class="muted">加载中...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- 评论弹窗 -->
+  <div class="modal-mask" id="commentModal">
+    <div class="modal-box" role="dialog" aria-modal="true">
+      <button class="modal-close" id="cmClose" type="button" aria-label="关闭">×</button>
+      <h3 id="cmTitle">评论</h3>
+      <p class="muted"><a id="cmLink" href="https://bgm.tv" target="_blank" rel="noopener">在 Bangumi 查看这部番 →</a></p>
+      <div class="comment-list" id="cmList"><p class="muted">加载中...</p></div>
+      <form class="comment-form" id="cmForm">
+        <textarea id="cmContent" rows="3" maxlength="500" placeholder="说点什么，比如第一集观感、作画、OP/ED……"></textarea>
+        <button class="btn btn-primary btn-sm" type="submit">发表评论</button>
+      </form>
+      <p class="muted" id="cmLoginTip" hidden>登录后才能评论 · <a href="index.html#auth">去登录</a></p>
+    </div>
+  </div>
+
+  <!-- 手动添加弹窗 -->
+  <div class="modal-mask" id="addModal">
+    <div class="modal-box">
+      <button class="modal-close" id="addClose" type="button" aria-label="关闭">×</button>
+      <h3>手动添加一部新番</h3>
+      <p class="muted">服务器访问不了 Bangumi 接口时，用这个把番剧补进本季列表。</p>
+      <form class="add-form" id="addForm">
+        <label>标题（必填）<input id="addTitle" maxlength="160" required /></label>
+        <label>中文名<input id="addCn" maxlength="160" /></label>
+        <label>首播日期<input id="addDate" type="date" /></label>
+        <label>Bangumi 链接或 ID<input id="addBgm" placeholder="https://bgm.tv/subject/12345 或 12345" /></label>
+        <label>简介<textarea id="addSummary" rows="3" maxlength="2000"></textarea></label>
+        <button class="btn btn-primary btn-sm" type="submit">添加</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">🍀</span>
+          <strong>Clovers' 动漫协会</strong>
+          <p>浙江农林大学 · 二次元同好社团</p>
+        </div>
+        <div class="footer-links">
+          <p>部门主页</p>
+          <a href="xuanbian.html">宣编部</a>
+          <a href="zhaiwu.html">宅舞部</a>
+          <a href="wota.html">WOTA艺部</a>
+          <a href="zhuoyou.html">桌游部</a>
+        </div>
+        <div class="footer-links">
+          <p>更多</p>
+          <a href="game.html">热力交易所</a>
+          <a href="index.html#board">留言板</a>
+          <a href="profile.html">个人主页</a>
+        </div>
+      </div>
+      <p class="copyright">© 2004-2026 Clovers' 动漫协会 · Made by Okinawa for Clovers</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/common.js?v=20261031c"></script>
+  <script src="js/anime.js?v=20261031c"></script>
+</body>
+</html>

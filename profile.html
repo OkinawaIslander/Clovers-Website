@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的 | Clovers' 动漫协会</title>
+  <meta name="description" content="Clovers 个人主页 - 热力值、小游戏、持仓、留言、评论、投稿与投票。" />
+  <link rel="stylesheet" href="css/style.css?v=20261031c" />
+  <link rel="stylesheet" href="css/pages.css?v=20261031c" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🍀</span>
+        <span class="logo-text">大学生Clovers'动漫协会</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">首页</a></li>
+        <li><a href="index.html#departments" class="nav-link">部门</a></li>
+        <li><a href="game.html" class="nav-link">交易所</a></li>
+        <li><a href="anime.html" class="nav-link">新番</a></li>
+        <li><a href="vote.html" class="nav-link">投票</a></li>
+        <li><a href="works.html" class="nav-link">作品</a></li>
+        <li><a href="index.html#board" class="nav-link">留言板</a></li>
+        <li><a href="profile.html" class="nav-link active" id="authNavBtn">我的</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-hero profile-hero">
+    <div class="container">
+      <div class="profile-top">
+        <div class="profile-avatar" id="avatar">🍀</div>
+        <div class="profile-id">
+          <h1 id="nickname">加载中...</h1>
+          <p class="profile-meta" id="meta"></p>
+          <p class="profile-signature" id="signature"></p>
+          <div class="dept-badges" id="deptBadges"></div>
+        </div>
+        <div class="profile-quick" id="profileQuick"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="stat-grid">
+        <div class="stat-card"><span>净资产</span><strong id="statNet">--</strong></div>
+        <div class="stat-card"><span>交易所排名</span><strong id="statRank">--</strong></div>
+        <div class="stat-card"><span>累计盈亏</span><strong id="statProfit">--</strong></div>
+        <div class="stat-card"><span>收益率</span><strong id="statPct">--</strong></div>
+      </div>
+
+      <div class="profile-note" id="publicNote" hidden>这是 TA 的公开主页，留言、评论、投稿和持仓只有本人可见。</div>
+
+      <div class="me-tabs" id="meTabs" hidden>
+        <button type="button" class="me-tab active" data-tab="overview">概览</button>
+        <button type="button" class="me-tab" data-tab="positions">持仓与交易</button>
+        <button type="button" class="me-tab" data-tab="posts">留言</button>
+        <button type="button" class="me-tab" data-tab="comments">评论</button>
+        <button type="button" class="me-tab" data-tab="subs">投稿</button>
+        <button type="button" class="me-tab" data-tab="votes">投票</button>
+        <button type="button" class="me-tab" data-tab="settings">设置</button>
+      </div>
+
+      <section class="panel" id="publicPanel" hidden>
+        <div class="panel-head"><h2>最近动态</h2></div>
+        <ul class="feed-list" id="publicFeed"><li class="feed-empty">加载中...</li></ul>
+      </section>
+
+      <div class="me-panels" id="mePanels">
+        <section class="me-panel active" id="panel-overview">
+          <div class="game-stats" id="gameStats"></div>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>我的动态</h2>
+              <a class="panel-link" href="game.html">去交易所 →</a>
+            </div>
+            <ul class="feed-list" id="feedList"><li class="feed-empty">加载中...</li></ul>
+          </section>
+        </section>
+
+        <section class="me-panel" id="panel-positions">
+          <div class="profile-grid">
+            <section class="panel">
+              <div class="panel-head"><h2>我的持仓</h2><a class="panel-link" href="game.html">去交易 →</a></div>
+              <div id="positions"><p class="muted">加载中...</p></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><h2>交易记录</h2><span class="muted">最近 30 笔</span></div>
+              <div id="history"><p class="muted">加载中...</p></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="me-panel" id="panel-posts">
+          <section class="panel">
+            <div class="panel-head"><h2>历史留言</h2><a class="panel-link" href="index.html#board">去留言板 →</a></div>
+            <div id="myPosts"><p class="muted">加载中...</p></div>
+          </section>
+        </section>
+
+        <section class="me-panel" id="panel-comments">
+          <section class="panel">
+            <div class="panel-head"><h2>历史评论</h2><a class="panel-link" href="anime.html">去新番 →</a></div>
+            <div id="myComments"><p class="muted">加载中...</p></div>
+          </section>
+        </section>
+
+        <section class="me-panel" id="panel-subs">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>投稿稿件管理</h2>
+              <div class="panel-actions">
+                <button class="btn btn-outline btn-sm" id="allSubsBtn" type="button" hidden>查看全部投稿</button>
+                <a class="btn btn-primary btn-sm" href="submit.html">去投稿</a>
+              </div>
+            </div>
+            <div id="mySubs"><p class="muted">加载中...</p></div>
+          </section>
+        </section>
+
+        <section class="me-panel" id="panel-votes">
+          <section class="panel">
+            <div class="panel-head"><h2>我参与的投票</h2><a class="panel-link" href="vote.html">去投票 →</a></div>
+            <div id="myVotes"><p class="muted">加载中...</p></div>
+          </section>
+        </section>
+
+        <section class="me-panel" id="panel-settings">
+          <section class="panel" style="margin-bottom:18px;">
+            <div class="panel-head"><h2>个人资料</h2></div>
+            <form class="add-form" id="profileForm" style="max-width:520px;">
+              <label>昵称<input id="setNickname" maxlength="16" required /></label>
+              <label>签名（30 字以内）<input id="setSignature" maxlength="30" placeholder="一句话介绍自己" /></label>
+              <div class="form-field">
+                <span class="field-label">部门（可多选）</span>
+                <div class="dept-checks">
+                  <label><input type="checkbox" value="xuanbian" /> 宣编部</label>
+                  <label><input type="checkbox" value="zhaiwu" /> 宅舞部</label>
+                  <label><input type="checkbox" value="wota" /> WOTA艺部</label>
+                  <label><input type="checkbox" value="zhuoyou" /> 桌游部</label>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-sm" type="submit">保存资料</button>
+            </form>
+          </section>
+
+          <section class="panel" style="margin-bottom:18px;">
+            <div class="panel-head"><h2>头像</h2></div>
+            <div class="avatar-edit">
+              <div class="profile-avatar small" id="avatarPreview">🍀</div>
+              <div class="avatar-edit-main">
+                <input type="file" id="avatarFile" accept="image/jpeg,image/png,image/webp,image/gif" />
+                <button class="btn btn-outline btn-sm" type="button" id="avatarBtn">上传头像</button>
+                <p class="muted small">JPG / PNG / WebP / GIF，2MB 以内；不设置时显示昵称第一个字。</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel" id="superPanel" hidden style="margin-bottom:18px;">
+            <div class="panel-head">
+              <h2>管理员授权</h2>
+              <span class="muted">仅系统管理员可见</span>
+            </div>
+            <div id="userAdminList"><p class="muted">加载中...</p></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><h2>修改密码</h2></div>
+            <form class="add-form" id="pwdForm" style="max-width:420px;">
+              <label>当前密码<input id="pwdCurrent" type="password" autocomplete="current-password" required /></label>
+              <label>新密码<input id="pwdNew" type="password" autocomplete="new-password" minlength="6" required /></label>
+              <label>确认新密码<input id="pwdNew2" type="password" autocomplete="new-password" minlength="6" required /></label>
+              <button class="btn btn-primary btn-sm" type="submit">修改密码</button>
+              <p class="muted small">系统管理员账号请务必在这里改掉初始密码。</p>
+            </form>
+          </section>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">🍀</span>
+          <strong>Clovers' 动漫协会</strong>
+          <p>浙江农林大学 · 二次元同好社团</p>
+        </div>
+        <div class="footer-links">
+          <p>部门主页</p>
+          <a href="xuanbian.html">宣编部</a>
+          <a href="zhaiwu.html">宅舞部</a>
+          <a href="wota.html">WOTA艺部</a>
+          <a href="zhuoyou.html">桌游部</a>
+        </div>
+        <div class="footer-links">
+          <p>更多</p>
+          <a href="vote.html">投票</a>
+          <a href="submit.html">社刊投稿</a>
+          <a href="anime.html">本季新番</a>
+          <a href="game.html">交易所</a>
+        </div>
+      </div>
+      <p class="copyright">© 2004-2026 Clovers' 动漫协会 · Made by Okinawa for Clovers</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/common.js?v=20261031c"></script>
+  <script src="js/profile.js?v=20261031c"></script>
+</body>
+</html>

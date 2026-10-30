@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clovers' 动漫协会 | 浙江农林大学</title>
+  <meta name="description" content="大学生Clovers'动漫协会官方网站 - 宣编部 · 宅舞部 · WOTA艺部 · 桌游部" />
+  <link rel="stylesheet" href="css/style.css?v=20261031d" />
+  <script>
+    // 脚本版本不一致时给出明确提示（多半是浏览器缓存了旧文件）
+    window.addEventListener("error", function (e) {
+      if (!e || !/is not defined|already been declared|Unexpected token|Cannot access/.test(e.message || "")) return;
+      setTimeout(function () {
+        if (document.getElementById("scriptErrorBar")) return;
+        var bar = document.createElement("div");
+        bar.id = "scriptErrorBar";
+        bar.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:99999;background:#c62828;color:#fff;padding:8px 14px;font-size:13px;text-align:center";
+        bar.textContent = "页面脚本加载失败（可能是浏览器缓存），请按 Ctrl+F5 强制刷新；仍然不行就检查 js/common.js 是否已上传。";
+        if (document.body) document.body.appendChild(bar);
+      }, 0);
+    });
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>" />
+</head>
+<body>
+  <!-- 导航 -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        <span class="logo-icon">🍀</span>
+        <span class="logo-text">大学生Clovers'动漫协会</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">首页</a></li>
+        <li><a href="#departments" class="nav-link">部门</a></li>
+        <li><a href="game.html" class="nav-link">交易所</a></li>
+        <li><a href="anime.html" class="nav-link">新番</a></li>
+        <li><a href="vote.html" class="nav-link">投票</a></li>
+        <li><a href="works.html" class="nav-link">作品</a></li>
+        <li><a href="#board" class="nav-link">留言板</a></li>
+        <li><a href="profile.html" class="nav-link" id="authNavBtn">我的</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 首页 Hero -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="clover-float">🍀</div>
+      <h1 class="hero-title">
+        <span class="title-line">大学生</span>
+        <span class="title-main">Clovers' 动漫协会</span>
+      </h1>
+      <p class="hero-subtitle">浙江农林大学 · 二次元同好聚集地</p>
+      <p class="hero-desc">在这里，热爱二次元的我们一起跳舞、一起光棒、一起桌游、一起创作。<br>欢迎加入四叶草的大家庭！</p>
+      <div class="hero-btns">
+        <a href="#departments" class="btn btn-primary">探索部门</a>
+        <a href="https://space.bilibili.com/123204815?spm_id_from=333.337.search-card.all.click" target="_blank" rel="noopener" class="btn btn-outline">B站主页</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">4</span>
+          <span class="stat-label">核心部门</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">∞</span>
+          <span class="stat-label">热爱</span>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- 公告 -->
+  <section id="notice" class="section notice-section">
+    <div class="container">
+      <div class="notice-head">
+        <h2 class="section-title"><span class="title-icon">📢</span>公告栏</h2>
+        <button class="btn btn-outline btn-sm" id="noticeToggle" type="button" hidden>发布公告</button>
+      </div>
+      <div id="noticeList" class="notice-list"><p class="muted">加载中...</p></div>
+      <form id="noticeForm" class="add-form notice-form" hidden>
+        <input id="noticeTitle" maxlength="120" placeholder="公告标题" required />
+        <textarea id="noticeContent" rows="2" maxlength="2000" placeholder="公告内容" required></textarea>
+        <button class="btn btn-primary btn-sm" type="submit">发布</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 部门介绍 -->
+  <section id="departments" class="section departments">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="title-icon">✨</span>
+        四大部门
+        <span class="title-icon">✨</span>
+      </h2>
+      <p class="section-desc">选择你热爱的方向，找到属于你的同好 · 点击卡片进入部门主页</p>
+      <div class="dept-grid">
+        <a class="dept-card" data-dept="xuanbian" href="xuanbian.html">
+          <div class="dept-icon">📝</div>
+          <h3>宣编部</h3>
+          <p class="dept-tag">绘画 · 产出 · 设计</p>
+          <p class="dept-desc">负责社刊产出、活动海报、文章编辑、视频剪辑与视觉设计。用创新把二次元的美好传递出去。</p>
+          <ul class="dept-list">
+            <li>文章 / 同人</li>
+            <li>绘画 / Cosplay</li>
+            <li>活动记录与社刊</li>
+          </ul>
+          <span class="dept-more">进入宣编部</span>
+        </a>
+        <a class="dept-card" data-dept="zhaiwu" href="zhaiwu.html">
+          <div class="dept-icon">💃</div>
+          <h3>宅舞部</h3>
+          <p class="dept-tag">舞蹈 · 表演 · 练习</p>
+          <p class="dept-desc">热爱宅舞的小伙伴聚集地！从基础动作到舞台表演，一起在音乐中舞动青春。</p>
+          <ul class="dept-list">
+            <li>日常练习与教学</li>
+            <li>迎新晚会 / 百团大战</li>
+            <li>翻跳与团舞组队</li>
+          </ul>
+          <span class="dept-more">进入宅舞部</span>
+        </a>
+        <a class="dept-card" data-dept="wota" href="wota.html">
+          <div class="dept-icon">🎤</div>
+          <h3>WOTA艺部</h3>
+          <p class="dept-tag">应援 · 光棒 · 节奏</p>
+          <p class="dept-desc">用光棒和节奏表达对偶像与作品的热爱。WOTA艺让每一次应援都充满力量与默契。</p>
+          <ul class="dept-list">
+            <li>WOTA技术教学</li>
+            <li>晚会爬台 / 演出应援</li>
+            <li>节奏与团队配合</li>
+          </ul>
+          <span class="dept-more">进入 WOTA艺部</span>
+        </a>
+        <a class="dept-card" data-dept="zhuoyou" href="zhuoyou.html">
+          <div class="dept-icon">🎲</div>
+          <h3>桌游部</h3>
+          <p class="dept-tag">桌面游戏 · 聚会 · 策略</p>
+          <p class="dept-desc">从轻松休闲到硬核策略，桌游让我们在欢声笑语中结识朋友、锻炼思维。</p>
+          <ul class="dept-list">
+            <li>定期桌游局</li>
+            <li>新游戏试玩</li>
+            <li>社团内部赛事</li>
+          </ul>
+          <span class="dept-more">进入桌游部</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热力中心：交易所 + 小游戏 -->
+  <section id="game" class="section game-section">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="title-icon">📈</span>
+        热力中心
+      </h2>
+      <p class="section-desc">小游戏赚热力值，热力值拿去交易所做多 / 做空四大部门。老实建设社团很枯燥吧？</p>
+      <div class="exchange-promo">
+        <div class="exchange-promo-main">
+          <p class="promo-kicker">CLOVERS HEAT EXCHANGE · 模拟盘</p>
+          <h3>用热爱做多做空，看看谁最会把社团经营成资产。</h3>
+          <p>小游戏得分 1:1 兑换热力值 · 每日签到领 100+ · 12:00 - 18:00 开仓 · 1x 到 10x 杠杆 · 爆仓强平</p>
+          <a class="btn btn-primary" href="game.html">进入交易所 →</a>
+        </div>
+        <div class="exchange-promo-stats">
+          <div><span>交易品种</span><strong>4</strong><em>四大部门</em></div>
+          <div><span>杠杆</span><strong>10x</strong><em>最高倍数</em></div>
+          <div><span>开仓时段</span><strong>12-18</strong><em>每天</em></div>
+        </div>
+
+        <div class="exchange-promo-games">
+          <p class="promo-kicker">MINI GAMES · 全部可换热力值</p>
+          <div class="exchange-game-grid">
+            <a class="exchange-game" href="survivors.html">
+              <span class="eg-ico">🍀</span>
+              <strong>四叶草幸存者</strong>
+              <span>WASD / 手机摇杆，自动攻击，升级选词条，活过 3 分钟。</span>
+              <em>开始 Survivors →</em>
+            </a>
+            <a class="exchange-game" href="farm.html">
+              <span class="eg-ico">🥕</span>
+              <strong>像素农场</strong>
+              <span>用热力值买种子，种菜、收菜、去别人家偷菜。</span>
+              <em>去种地 →</em>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 留言板 -->
+  <section id="board" class="section board-section">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="title-icon">💬</span>
+        日常留言板
+      </h2>
+      <p class="section-desc">留下你的想法、活动感想或对社团的祝福吧～</p>
+      <div class="board-layout">
+        <form class="message-form" id="messageForm">
+          <div class="form-group">
+            <label for="msgName">昵称</label>
+            <input type="text" id="msgName" placeholder="你的昵称" maxlength="20" required />
+          </div>
+          <div class="form-group">
+            <label for="msgContent">留言内容</label>
+            <textarea id="msgContent" rows="4" placeholder="想说点什么..." maxlength="300" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">发布留言</button>
+          <p class="form-note">登录后昵称自动带出；管理员可以在留言右上角删除不合适的留言。</p>
+        </form>
+        <div class="message-list" id="messageList">
+          <!-- 动态渲染 -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 全站动态 -->
+  <section id="feed" class="section home-feed-section">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="title-icon">📡</span>
+        全站动态
+      </h2>
+      <p class="section-desc">开仓、平仓、签到、留言、投稿、农场和番剧评论都会汇总到这里。</p>
+      <ul class="feed-list home-feed" id="feedList">
+        <li class="feed-empty">加载中...</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 评分榜 -->
+  <section id="ranking" class="section ranking-section">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="title-icon">🏆</span>
+        热力排行榜
+      </h2>
+      <p class="section-desc">交易所净资产排行 · 登录后开仓就能上榜</p>
+      <div class="ranking-tabs">
+        <button class="rank-tab active" data-tab="game">交易所排行</button>
+        <button class="rank-tab" data-tab="rate">社团评分</button>
+      </div>
+      <div class="ranking-content">
+        <div class="rank-panel active" id="rankGame">
+          <table class="rank-table">
+            <thead>
+              <tr>
+                <th>排名</th>
+                <th>成员</th>
+                <th>净资产</th>
+                <th>累计盈亏</th>
+              </tr>
+            </thead>
+            <tbody id="gameRankBody">
+              <!-- 动态 -->
+            </tbody>
+          </table>
+          <p class="rank-empty" id="gameRankEmpty">暂无记录，快去交易所开第一单！</p>
+          <p style="text-align:center;margin-top:16px;"><a class="btn btn-outline btn-sm" href="game.html">进入热力交易所 →</a></p>
+        </div>
+        <div class="rank-panel" id="rankRate">
+          <div class="rate-form-box">
+            <h4>给社团打分</h4>
+            <div class="star-rate" id="starRate">
+              <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
+            </div>
+            <input type="text" id="rateComment" placeholder="一句话评价（可选）" maxlength="50" />
+            <button class="btn btn-primary btn-sm" id="submitRateBtn">提交评分</button>
+          </div>
+          <div class="rate-summary">
+            <div class="avg-score">
+              <span class="avg-num" id="avgScore">—</span>
+              <span class="avg-label">平均分</span>
+            </div>
+            <div class="rate-list" id="rateList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 登录 / 注册 -->
+  <section id="auth" class="section auth-section">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="title-icon">👤</span>
+        账户中心
+      </h2>
+      <div class="auth-box">
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-auth="login">登录</button>
+          <button class="auth-tab" data-auth="register">邮箱注册</button>
+        </div>
+        <!-- 登录 -->
+        <form class="auth-form active" id="loginForm">
+          <div class="form-group">
+            <label>邮箱 / 账号</label>
+            <input type="text" id="loginEmail" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>密码</label>
+            <input type="password" id="loginPassword" placeholder="密码" required />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">登录</button>
+        </form>
+        <!-- 注册 -->
+        <form class="auth-form" id="registerForm">
+          <div class="form-group">
+            <label>昵称</label>
+            <input type="text" id="regNickname" placeholder="显示昵称" maxlength="16" required />
+          </div>
+          <div class="form-group">
+            <label>邮箱</label>
+            <input type="email" id="regEmail" placeholder="用于绑定与登录" required />
+          </div>
+          <div class="form-group">
+            <label>验证码</label>
+            <div class="code-row">
+              <input type="text" id="regCode" placeholder="6位验证码" maxlength="6" required />
+              <button type="button" class="btn btn-outline btn-sm" id="sendCodeBtn">获取验证码</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>密码</label>
+            <input type="password" id="regPassword" placeholder="至少 6 位" minlength="6" required />
+          </div>
+          <div class="form-group">
+            <label>确认密码</label>
+            <input type="password" id="regPassword2" placeholder="再次输入密码" required />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">注册</button>
+          <p class="form-note">验证码将发送到你的邮箱，请同时检查垃圾箱。有效期 10 分钟。</p>
+        </form>
+        <!-- 已登录状态 -->
+        <div class="user-panel" id="userPanel" style="display:none;">
+          <div class="user-avatar" id="userPanelAvatar">🍀</div>
+          <h3 id="userNickname">用户</h3>
+          <p id="userEmail" class="user-email"></p>
+          <p class="user-heat">🔥 热力值 <strong id="userHeat">--</strong></p>
+          <div class="user-actions">
+            <a class="btn btn-primary" href="profile.html">个人主页</a>
+            <button class="btn btn-outline" id="logoutBtn">退出登录</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">🍀</span>
+          <strong>Clovers' 动漫协会</strong>
+          <p>浙江农林大学 · 二次元同好社团</p>
+        </div>
+        <div class="footer-links">
+          <p>部门主页</p>
+          <a href="xuanbian.html">宣编部</a>
+          <a href="zhaiwu.html">宅舞部</a>
+          <a href="wota.html">WOTA艺部</a>
+          <a href="zhuoyou.html">桌游部</a>
+        </div>
+        <div class="footer-links">
+          <p>更多</p>
+          <a href="game.html">热力交易所</a>
+          <a href="survivors.html">四叶草幸存者</a>
+          <a href="farm.html">像素农场</a>
+          <a href="works.html">投稿展示</a>
+          <a href="anime.html">本季新番</a>
+          <a href="vote.html">投票</a>
+          <a href="submit.html">社刊投稿</a>
+          <a href="profile.html">我的</a>
+        </div>
+        <div class="footer-links">
+          <p>官方账号</p>
+          <a href="https://space.bilibili.com/123204815" target="_blank" rel="noopener">Bilibili：Clovers_双扣部落</a>
+        </div>
+      </div>
+      <p class="copyright">© 2004-2026 Clovers' 动漫协会 · Made by Okinawa for Clovers</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/common.js?v=20261031c"></script>
+  <script src="js/app.js?v=20261031c"></script>
+  <script>
+    // 兜底：即使 app.js 因缓存/加载失败，登录 / 邮箱注册 两个标签也一定能切换
+    (function () {
+      var tabs = document.querySelectorAll(".auth-tab");
+      if (!tabs.length) return;
+      function show(name) {
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].classList.toggle("active", tabs[i].getAttribute("data-auth") === name);
+        }
+        var loginForm = document.getElementById("loginForm");
+        var registerForm = document.getElementById("registerForm");
+        if (loginForm) loginForm.classList.toggle("active", name === "login");
+        if (registerForm) registerForm.classList.toggle("active", name === "register");
+      }
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].addEventListener("click", function () {
+          show(this.getAttribute("data-auth"));
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

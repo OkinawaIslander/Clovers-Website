@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>像素农场 | Clovers' 动漫协会</title>
+  <meta name="description" content="Clovers 像素农场：用热力值买种子，种菜、收菜、偷菜。" />
+  <link rel="stylesheet" href="css/style.css?v=20261031a" />
+  <link rel="stylesheet" href="css/farm.css?v=20261031a" />
+  <link rel="icon" href="images/社团标志.jpg" />
+</head>
+<body class="farm-body">
+  <header class="farm-top">
+    <a href="index.html" class="farm-back">← 首页</a>
+    <div class="farm-logo">🍀 CLOVERS FARM</div>
+    <div class="farm-heat">🔥 <b id="farmHeat">--</b></div>
+  </header>
+
+  <main class="farm-wrap">
+    <section class="farm-hud">
+      <p id="farmSub">用热力值买种子，成熟后卖出；也可以去别人家偷菜。</p>
+      <div class="farm-chips">
+        <span>今日偷菜额度 <b id="stealLeft">--</b></span>
+        <span>地块 <b>4</b></span>
+        <span>作物 <b id="cropCount">0</b></span>
+      </div>
+    </section>
+
+    <div class="farm-layout">
+      <section class="farm-main">
+        <div class="farm-main-head">
+          <h1 id="farmOwner">我的农场</h1>
+          <button type="button" class="farm-btn farm-btn-small" id="backOwn" hidden>回自己的农场</button>
+        </div>
+
+        <div class="farm-plots" id="farmPlots">
+          <p class="farm-loading">正在翻土...</p>
+        </div>
+        <p class="farm-tip" id="farmTip">点击空地块种菜；成熟后点「收获」卖成热力值。</p>
+      </section>
+
+      <aside class="farm-side">
+        <section class="farm-panel">
+          <h2>种子商店</h2>
+          <div class="seed-list" id="seedList"></div>
+          <p class="farm-muted">买种子的热力值会直接扣除；卖出价高于种子价。</p>
+        </section>
+
+        <section class="farm-panel">
+          <h2>去别人家</h2>
+          <div class="farmer-list" id="farmerList"><p class="farm-muted">加载中...</p></div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <div class="farm-modal" id="seedModal" hidden>
+    <div class="farm-modal-card">
+      <button type="button" class="farm-modal-close" id="seedClose">×</button>
+      <h2>选择种子</h2>
+      <p class="farm-muted">这块地空着，种点什么？</p>
+      <div class="seed-pick" id="seedPick"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/common.js?v=20261030a"></script>
+  <script src="js/farm.js?v=20261031b"></script>
+</body>
+</html>

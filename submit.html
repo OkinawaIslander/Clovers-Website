@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>社刊投稿 | Clovers' 动漫协会</title>
+  <meta name="description" content="Clovers' 动漫协会社刊投稿 - cosplay 摄影、文章、绘画插画与其他作品，上传文件投稿。" />
+  <link rel="stylesheet" href="css/style.css?v=20261029a" />
+  <link rel="stylesheet" href="css/pages.css?v=20261029a" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🍀</span>
+        <span class="logo-text">大学生Clovers'动漫协会</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">首页</a></li>
+        <li><a href="index.html#departments" class="nav-link">部门</a></li>
+        <li><a href="game.html" class="nav-link">交易所</a></li>
+        <li><a href="anime.html" class="nav-link">新番</a></li>
+        <li><a href="vote.html" class="nav-link">投票</a></li>
+        <li><a href="works.html" class="nav-link">作品</a></li>
+        <li><a href="index.html#board" class="nav-link">留言板</a></li>
+        <li><a href="profile.html" class="nav-link" id="authNavBtn">我的</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <p class="kicker">CLOVERS ZINE</p>
+      <h1>社刊投稿</h1>
+      <p class="hero-desc-sm">接受 cosplay 摄影、文章、绘画插画和其他作品。上传文件后由管理员审核，通过后会收进今年的社刊。</p>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="submit-layout">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>投一篇稿子</h2>
+            <a class="panel-link" href="profile.html">我的投稿 →</a>
+          </div>
+          <form id="submitForm" class="add-form" enctype="multipart/form-data">
+            <label>标题<input id="subTitle" maxlength="160" required placeholder="给作品起个名字" /></label>
+            <label>分类
+              <select id="subCategory">
+                <option value="cosplay摄影">cosplay 摄影</option>
+                <option value="文章">文章 / 同人</option>
+                <option value="绘画插画">绘画 / 插画</option>
+                <option value="其他">其他</option>
+              </select>
+            </label>
+            <label>作品说明（可选）<textarea id="subDesc" rows="3" maxlength="1000" placeholder="创作思路、使用的工具、想说的话……"></textarea></label>
+            <label>文件
+              <input id="subFile" type="file" required accept=".pdf,.doc,.docx,.txt,.md,.zip,.rar,.7z,.jpg,.jpeg,.png,.webp,.psd,.ai,.ppt,.pptx,.xls,.xlsx" />
+            </label>
+            <p class="muted small" id="subFileTip">支持 PDF / Word / 图片 / 压缩包等，单个文件不超过 20MB；文件会以随机名保存，只有你和管理员能下载。</p>
+            <button class="btn btn-primary btn-sm" type="submit" id="subSubmitBtn">提交投稿</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>我的投稿</h2>
+            <span class="muted" id="subCount"></span>
+          </div>
+          <div id="mySubs"><p class="muted">加载中...</p></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">🍀</span>
+          <strong>Clovers' 动漫协会</strong>
+          <p>浙江农林大学 · 二次元同好社团</p>
+        </div>
+        <div class="footer-links">
+          <p>部门主页</p>
+          <a href="xuanbian.html">宣编部</a>
+          <a href="zhaiwu.html">宅舞部</a>
+          <a href="wota.html">WOTA艺部</a>
+          <a href="zhuoyou.html">桌游部</a>
+        </div>
+        <div class="footer-links">
+          <p>更多</p>
+          <a href="vote.html">投票</a>
+          <a href="submit.html">社刊投稿</a>
+          <a href="anime.html">本季新番</a>
+          <a href="profile.html">我的</a>
+        </div>
+      </div>
+      <p class="copyright">© 2004-2026 Clovers' 动漫协会 · Made by Okinawa for Clovers</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/common.js?v=20261029a"></script>
+  <script src="js/submit.js?v=20261029a"></script>
+</body>
+</html>
