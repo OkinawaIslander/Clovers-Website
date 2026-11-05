@@ -324,6 +324,6 @@ clovers-site/
 
 **如果这个项目对你有帮助，点个 ⭐ 吧。**
 
-Made with 🍀 for Clovers
+Made by Okinawa for Clovers
 
 </div>
