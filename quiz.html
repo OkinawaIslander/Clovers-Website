@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>每日答题 | Clovers' 动漫协会</title>
+  <meta name="description" content="Clovers 每日答题：每天选一个板块抽三道动漫 / 游戏 / 其他题，答对换热力值；也可以每天出三道题。" />
+  <link rel="stylesheet" href="css/style.css?v=20261105a" />
+  <link rel="stylesheet" href="css/pages.css?v=20261105a" />
+  <link rel="stylesheet" href="css/quiz.css?v=20261105b" />
+  <link rel="icon" href="images/社团标志.jpg" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🍀</span>
+        <span class="logo-text">大学生Clovers'动漫协会</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">首页</a></li>
+        <li><a href="index.html#departments" class="nav-link">部门</a></li>
+        <li><a href="game.html" class="nav-link">交易所</a></li>
+        <li><a href="anime.html" class="nav-link">新番</a></li>
+        <li><a href="vote.html" class="nav-link">投票</a></li>
+        <li><a href="quiz.html" class="nav-link active">答题</a></li>
+        <li><a href="works.html" class="nav-link">作品</a></li>
+        <li><a href="index.html#board" class="nav-link">留言板</a></li>
+        <li><a href="profile.html" class="nav-link" id="authNavBtn">我的</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <p class="kicker">CLOVERS QUIZ</p>
+      <h1>每日答题</h1>
+      <p class="hero-desc-sm">每天选一个板块抽 3 道单选题，答对换热力值；也可以每天向题库出 3 道题。</p>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="quiz-layout">
+        <section class="quiz-main">
+          <div class="quiz-tabs">
+            <button type="button" class="quiz-tab active" data-qtab="answer">答题</button>
+            <button type="button" class="quiz-tab" data-qtab="create" id="quizCreateTab" hidden>出题</button>
+            <button type="button" class="quiz-tab" data-qtab="manage" id="quizManageTab" hidden>题库管理</button>
+          </div>
+
+          <section class="quiz-panel" id="quizAnswer">
+            <div id="quizAnswerBody"><p class="muted">加载中...</p></div>
+          </section>
+
+          <section class="quiz-panel" id="quizCreate" hidden>
+            <form class="add-form quiz-form" id="quizForm">
+              <p class="quiz-intro">每天最多出 3 道题，4 个选项，标注一个正确答案。提交后会直接进入题库；当天出的题可以回来修改。</p>
+              <label>板块
+                <select id="quizCategory">
+                  <option value="动漫">动漫</option>
+                  <option value="游戏">游戏</option>
+                  <option value="其他">其他</option>
+                </select>
+              </label>
+              <label>题目
+                <textarea id="quizQuestion" rows="3" maxlength="500" placeholder="例如：以下哪部动画的监督是新海诚？" required></textarea>
+              </label>
+              <div class="quiz-opts">
+                <label>A<input id="quizOptA" maxlength="200" required /></label>
+                <label>B<input id="quizOptB" maxlength="200" required /></label>
+                <label>C<input id="quizOptC" maxlength="200" required /></label>
+                <label>D<input id="quizOptD" maxlength="200" required /></label>
+              </div>
+              <label>正确答案
+                <select id="quizCorrect">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                </select>
+              </label>
+              <div class="quiz-form-foot">
+                <button class="btn btn-primary btn-sm" type="submit" id="quizSubmitBtn">加入题库</button>
+                <span class="quiz-note" id="quizFormTip">今天还可以出 3 道</span>
+              </div>
+            </form>
+            <div class="quiz-mine" id="quizMine"></div>
+          </section>
+
+          <section class="quiz-panel" id="quizManage" hidden>
+            <div class="quiz-manage-tools">
+              <select id="manageCategory">
+                <option value="">全部板块</option>
+                <option value="动漫">动漫</option>
+                <option value="游戏">游戏</option>
+                <option value="其他">其他</option>
+              </select>
+              <input id="manageSearch" type="search" placeholder="搜索题目..." maxlength="100" />
+              <button type="button" class="quiz-btn ghost" id="manageReload">筛选</button>
+            </div>
+            <p class="quiz-note" id="manageCount"></p>
+            <div id="quizManageList"><p class="muted">加载中...</p></div>
+            <div class="quiz-pager" id="managePager"></div>
+          </section>
+        </section>
+
+        <aside>
+          <div class="quiz-side-card">
+            <h3>今日数据</h3>
+            <div class="quiz-side-row"><span>我的热力值</span><b id="quizHeat">--</b></div>
+            <div class="quiz-side-row"><span>今日出题</span><b id="quizSubmitCount">0 / 3</b></div>
+            <div class="quiz-side-row"><span>今日答题</span><b id="quizAnswered">未开始</b></div>
+            <div class="quiz-side-row"><span>每题奖励</span><b id="quizReward">30 热力值</b></div>
+          </div>
+          <div class="quiz-side-card">
+            <h3>规则</h3>
+            <ol class="quiz-rules">
+              <li>每天只能选一个板块，抽 3 道题；</li>
+              <li>答对一题 +30 热力值，三题全对 +90；</li>
+              <li>每天最多出 3 道题，提交后直接进题库；</li>
+              <li>出题时请确保只有一个是正确答案。</li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <dialog class="quiz-dialog" id="quizEditDialog">
+    <form class="add-form quiz-form" id="quizEditForm">
+      <div class="quiz-dialog-head">
+        <h3>修改题目 <span class="quiz-dialog-no" id="quizEditNumber"></span></h3>
+        <button type="button" class="quiz-dialog-close" id="quizEditCancel" aria-label="关闭">×</button>
+      </div>
+      <label>板块
+        <select id="quizEditCategory">
+          <option value="动漫">动漫</option>
+          <option value="游戏">游戏</option>
+          <option value="其他">其他</option>
+        </select>
+      </label>
+      <label>题目
+        <textarea id="quizEditQuestion" rows="3" maxlength="500" required></textarea>
+      </label>
+      <div class="quiz-opts">
+        <label>A<input id="quizEditOptA" maxlength="200" required /></label>
+        <label>B<input id="quizEditOptB" maxlength="200" required /></label>
+        <label>C<input id="quizEditOptC" maxlength="200" required /></label>
+        <label>D<input id="quizEditOptD" maxlength="200" required /></label>
+      </div>
+      <label>正确答案
+        <select id="quizEditCorrect">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+        </select>
+      </label>
+      <div class="quiz-form-foot">
+        <button class="btn btn-primary btn-sm" type="submit" id="quizEditSave">保存修改</button>
+        <span class="quiz-note">管理员可改任意题；普通用户只能改当天自己出的题。</span>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="copyright">© 2004-2026 Clovers' 动漫协会 · Made by Okinawa for Clovers</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/common.js?v=20261105a"></script>
+  <script src="js/quiz.js?v=20261105c"></script>
+</body>
+</html>

@@ -1,0 +1,1449 @@
+/* ===== 个人主页 / 新番 等内页 ===== */
+:root {
+  --up: #1f8f4d;
+  --down: #c62828;
+}
+
+.page-hero {
+  padding: 120px 0 48px;
+  background:
+    radial-gradient(ellipse at 12% 10%, rgba(76, 175, 110, 0.2) 0%, transparent 55%),
+    radial-gradient(ellipse at 88% 20%, rgba(255, 107, 157, 0.12) 0%, transparent 55%),
+    linear-gradient(160deg, #e8f5e9 0%, #f0f7f2 60%, #fff5f8 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.26em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.page-hero h1 {
+  font-size: clamp(1.8rem, 4.4vw, 2.7rem);
+  color: var(--primary-dark);
+  line-height: 1.2;
+}
+
+.hero-desc-sm {
+  max-width: 680px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  font-size: 0.96rem;
+}
+
+.hero-desc-sm a {
+  color: var(--primary);
+}
+
+/* ---------- 个人主页 ---------- */
+.profile-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.profile-avatar {
+  width: 82px;
+  height: 82px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+  box-shadow: 0 10px 26px rgba(45, 143, 78, 0.25);
+  flex-shrink: 0;
+}
+
+.profile-id {
+  flex: 1;
+  min-width: 200px;
+}
+
+.profile-id h1 {
+  font-size: 1.7rem;
+  color: var(--primary-dark);
+}
+
+.profile-meta {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-top: 4px;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: rgba(255, 107, 157, 0.15);
+  color: #c2185b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.role-badge.user {
+  background: rgba(45, 143, 78, 0.12);
+  color: var(--primary-dark);
+}
+
+.profile-quick {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.heat-chip {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  font-size: 0.88rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+
+.stat-card span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+
+.stat-card strong {
+  font-size: 1.35rem;
+  color: var(--primary-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.profile-note {
+  background: #fff;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.panel-head h2 {
+  font-size: 1.05rem;
+  color: var(--primary-dark);
+}
+
+.panel-link {
+  font-size: 0.84rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.muted a {
+  color: var(--primary);
+}
+
+.mini-position {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  background: var(--bg);
+}
+
+.mp-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.pill.long {
+  background: rgba(31, 143, 77, 0.12);
+  color: var(--up);
+}
+
+.pill.short {
+  background: rgba(198, 40, 40, 0.1);
+  color: var(--down);
+}
+
+.mp-nums {
+  display: flex;
+  gap: 14px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.mp-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  gap: 10px;
+}
+
+.mp-bottom .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mini-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.mini-table th,
+.mini-table td {
+  padding: 9px 6px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.mini-table th {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.76rem;
+}
+
+.mini-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.pnl.up,
+.up {
+  color: var(--up);
+}
+
+.pnl.down,
+.down {
+  color: var(--down);
+}
+
+/* 浅色动态列表 */
+.feed-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feed-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.86rem;
+  color: var(--text);
+  flex-wrap: wrap;
+}
+
+.feed-type {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(45, 143, 78, 0.1);
+  color: var(--primary-dark);
+}
+
+.feed-text {
+  flex: 1;
+  min-width: 160px;
+}
+
+.feed-text a {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.feed-amount {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.feed-time {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+}
+
+.feed-empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ---------- 新番 ---------- */
+.season-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.season-tab {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.season-tab.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  font-weight: 700;
+}
+
+.anime-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.anime-season-title {
+  font-size: 1.25rem;
+  color: var(--primary-dark);
+}
+
+.anime-tools {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 18px;
+}
+
+.anime-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.anime-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.anime-cover {
+  display: block;
+  aspect-ratio: 3 / 4;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.anime-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.anime-noimg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 2.4rem;
+  color: var(--primary-light);
+}
+
+.anime-body {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.anime-body h3 {
+  font-size: 0.98rem;
+  line-height: 1.35;
+  color: var(--primary-dark);
+}
+
+.anime-body h3 a {
+  color: inherit;
+}
+
+.anime-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  word-break: break-word;
+}
+
+.anime-date {
+  font-size: 0.76rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.anime-summary {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.anime-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.8rem;
+}
+
+.anime-actions a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.anime-actions button {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--primary-dark);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.anime-actions button em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.anime-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px 20px;
+  background: #fff;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  color: var(--text);
+}
+
+.anime-empty .btn {
+  margin-top: 14px;
+}
+
+/* 新番列表 + 评分 */
+.anime-rating-legend {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  margin: -8px 0 14px;
+}
+
+.anime-sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 14px;
+}
+
+.anime-sort-label {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+}
+
+.anime-sort-btns {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.anime-sort-btn,
+.anime-dir {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 5px 11px;
+  font-size: 0.74rem;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.anime-sort-btn:hover,
+.anime-dir:hover {
+  border-color: var(--primary);
+  color: var(--primary-dark);
+}
+
+.anime-sort-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.anime-dir {
+  margin-left: auto;
+}
+
+.anime-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.anime-row {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) minmax(180px, 220px) auto;
+  gap: 14px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 13px 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.anime-row:hover {
+  border-color: var(--primary-light);
+  box-shadow: 0 6px 20px rgba(30, 80, 50, 0.07);
+}
+
+.anime-index {
+  font-family: "Courier New", monospace;
+  color: var(--primary-light);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.anime-main h3 {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--primary-dark);
+  margin-bottom: 2px;
+}
+
+.anime-main h3 a {
+  color: inherit;
+}
+
+.anime-sub {
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.anime-summary {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin-top: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.anime-score {
+  border-left: 1px solid var(--border);
+  padding-left: 14px;
+}
+
+.anime-score-top {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.anime-score-top strong {
+  font-size: 1.25rem;
+  color: var(--primary-dark);
+  font-family: "Courier New", monospace;
+}
+
+.rating-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  background: rgba(45, 143, 78, 0.12);
+  border-radius: 999px;
+  padding: 2px 7px;
+}
+
+.anime-score-top em {
+  font-style: normal;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+}
+
+.rating-buttons {
+  display: flex;
+  gap: 3px;
+  margin: 6px 0 3px;
+}
+
+.rating-btn {
+  width: 25px;
+  height: 24px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  border-radius: 6px;
+  font-size: 0.72rem;
+  cursor: pointer;
+  padding: 0;
+  transition: 0.15s;
+}
+
+.rating-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary-dark);
+}
+
+.rating-btn.active {
+  background: var(--primary);
+  border-color: var(--primary-dark);
+  color: #fff;
+  font-weight: 700;
+}
+
+.anime-my-rating {
+  color: var(--text-muted);
+  font-size: 0.66rem;
+  line-height: 1.4;
+}
+
+.anime-row-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 7px;
+  font-size: 0.76rem;
+}
+
+.anime-row-actions a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.anime-row-actions button {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--primary-dark);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.74rem;
+  cursor: pointer;
+}
+
+.anime-row-actions button em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .anime-row {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 8px 10px;
+    padding: 12px;
+  }
+
+  .anime-score {
+    grid-column: 1 / -1;
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    padding: 8px 0 0;
+  }
+
+  .anime-row-actions {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .anime-summary {
+    -webkit-line-clamp: 2;
+  }
+}
+
+/* ---------- 评论弹窗 ---------- */
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(10, 25, 16, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.modal-mask.open {
+  display: flex;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 520px;
+  max-height: 84vh;
+  overflow: auto;
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+.modal-box h3 {
+  color: var(--primary-dark);
+  font-size: 1.15rem;
+  padding-right: 28px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  border: 0;
+  background: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.comment-list {
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.comment-item {
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.comment-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.comment-head a {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.comment-head .muted {
+  flex: 1;
+  font-size: 0.74rem;
+}
+
+.comment-del {
+  border: 0;
+  background: none;
+  color: var(--down);
+  font-size: 0.74rem;
+  cursor: pointer;
+}
+
+.comment-item p {
+  font-size: 0.88rem;
+  color: var(--text);
+  word-break: break-word;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+.comment-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.comment-form .btn {
+  align-self: flex-end;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.add-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.add-form input,
+.add-form textarea {
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 9px 11px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.add-form input:focus,
+.add-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.add-form .btn {
+  align-self: flex-end;
+}
+
+@media (max-width: 768px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero {
+    padding-top: 100px;
+  }
+
+  .anime-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .submit-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== 我的：标签页 ===== */
+.me-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+  margin: 4px 0 20px;
+}
+
+.me-tab {
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.me-tab.active {
+  color: var(--primary-dark);
+  border-bottom-color: var(--primary);
+}
+
+.me-panel {
+  display: none;
+}
+
+.me-panel.active {
+  display: block;
+}
+
+.game-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.panel-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.me-item {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+}
+
+.me-item:last-child {
+  border-bottom: 0;
+}
+
+.me-item p {
+  font-size: 0.9rem;
+  color: var(--text);
+  word-break: break-word;
+}
+
+.me-item.deleted p {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.me-item-foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: 0.78rem;
+}
+
+.me-flag {
+  color: var(--accent);
+  font-size: 0.76rem;
+}
+
+.me-link {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ===== 投票 ===== */
+.vote-actions {
+  margin-top: 16px;
+}
+
+.poll-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.poll-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.poll-head h2 {
+  font-size: 1.15rem;
+  color: var(--primary-dark);
+  margin-bottom: 4px;
+}
+
+.poll-status {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.poll-status.open {
+  background: rgba(45, 143, 78, 0.12);
+  color: var(--primary-dark);
+}
+
+.poll-status.upcoming {
+  background: rgba(245, 166, 35, 0.15);
+  color: #b26a00;
+}
+
+.poll-status.closed {
+  background: rgba(90, 114, 96, 0.12);
+  color: var(--text-muted);
+}
+
+.poll-time {
+  margin: 8px 0 14px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.poll-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.poll-choose {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  background: var(--bg);
+  font-size: 0.92rem;
+}
+
+.poll-choose:hover {
+  border-color: var(--primary);
+}
+
+.poll-result {
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: var(--bg);
+}
+
+.poll-result.mine {
+  background: rgba(45, 143, 78, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(45, 143, 78, 0.35);
+}
+
+.poll-result-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.86rem;
+  margin-bottom: 6px;
+}
+
+.poll-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(45, 143, 78, 0.12);
+  overflow: hidden;
+}
+
+.poll-bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 999px;
+}
+
+.poll-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  font-size: 0.84rem;
+}
+
+.poll-manage {
+  display: flex;
+  gap: 8px;
+}
+
+/* ===== 投稿 ===== */
+.submit-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.sub-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 13px 15px;
+  margin-bottom: 10px;
+  background: var(--bg);
+}
+
+.sub-item-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.sub-item-head strong {
+  color: var(--primary-dark);
+  font-size: 0.95rem;
+}
+
+.sub-status {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.sub-status.pending {
+  background: rgba(245, 166, 35, 0.15);
+  color: #b26a00;
+}
+
+.sub-status.accepted {
+  background: rgba(45, 143, 78, 0.13);
+  color: var(--primary-dark);
+}
+
+.sub-status.rejected {
+  background: rgba(198, 40, 40, 0.1);
+  color: var(--down);
+}
+
+.sub-desc {
+  font-size: 0.86rem;
+  color: var(--text);
+  margin-top: 6px;
+}
+
+.sub-note {
+  font-size: 0.8rem;
+  color: #b26a00;
+  margin-top: 6px;
+}
+
+.sub-item-foot {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+  font-size: 0.82rem;
+}
+
+.sub-del {
+  border: 0;
+  background: none;
+  color: var(--down);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.sub-review {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.small {
+  font-size: 0.8rem;
+}
+
+/* ===== 头像 / 签名 / 部门 ===== */
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
+
+.profile-avatar.small {
+  width: 72px;
+  height: 72px;
+  font-size: 1.6rem;
+  border-radius: 18px;
+}
+
+.profile-signature {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.dept-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 7px;
+}
+
+.dept-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: rgba(45, 143, 78, 0.12);
+  color: var(--primary-dark);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.dept-checks {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.dept-checks label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.avatar-edit {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.avatar-edit-main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+/* ===== 投稿展示 ===== */
+.work-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 18px;
+}
+
+.work-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.work-cover {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.work-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.work-file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.work-file span {
+  font-size: 2.6rem;
+}
+
+.work-file em {
+  font-style: normal;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.work-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+}
+
+.work-cat {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(255, 107, 157, 0.1);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.work-body h3 {
+  font-size: 1.02rem;
+  color: var(--primary-dark);
+  line-height: 1.35;
+}
+
+.work-desc {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.work-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.work-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.work-avatar-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.work-author .muted {
+  margin-left: auto;
+  font-size: 0.72rem;
+}
+
+.work-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.admin-user-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+}
+
+.admin-user-row:last-child {
+  border-bottom: 0;
+}
+
+.admin-user-row > div:first-child {
+  flex: 1;
+  min-width: 180px;
+}
+
+.admin-user-row .role-badge {
+  margin-right: 0;
+}
+
+@media (max-width: 768px) {
+  .works-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
