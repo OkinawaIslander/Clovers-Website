@@ -1,14 +1,22 @@
 <?php
 /**
  * 全站动态
+<<<<<<< HEAD
  * GET ?limit=7&user_id=1（最多 7 条）
+=======
+ * GET ?limit=30&user_id=1
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
  */
 require_once __DIR__ . '/_lib.php';
 
 $pdo = pdo();
 boot($pdo);
 
+<<<<<<< HEAD
 $limit = sql_limit($_GET['limit'] ?? 7, 7);
+=======
+$limit = sql_limit($_GET['limit'] ?? 30, 100);
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 $userId = isset($_GET['user_id']) ? (int) $_GET['user_id'] : 0;
 
 if ($userId > 0) {
@@ -31,13 +39,20 @@ $labels = array(
     'close' => '平仓',
     'liquidation' => '强平',
     'checkin' => '签到',
+<<<<<<< HEAD
     'game' => '旧版小游戏',
+=======
+    'game' => '小游戏',
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
     'join' => '加入',
     'post' => '留言',
     'submit' => '投稿',
     'comment' => '评论',
     'farm' => '农场',
+<<<<<<< HEAD
     'quiz' => '答题',
+=======
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
     'admin' => '管理',
     'system' => '公告',
 );

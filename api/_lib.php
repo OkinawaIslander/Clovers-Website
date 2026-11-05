@@ -7,7 +7,11 @@
  */
 require_once __DIR__ . '/config.php';
 
+<<<<<<< HEAD
 define('CL_SCHEMA_VERSION', '12');
+=======
+define('CL_SCHEMA_VERSION', '11');
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 
 // ---------- 会话 ----------
 if (session_status() !== PHP_SESSION_ACTIVE) {
@@ -415,6 +419,23 @@ function ensure_schema($pdo) {
         KEY `idx_user` (`user_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4');
 
+<<<<<<< HEAD
+=======
+    // 四叶草小游戏记录（用于每日上限）
+    $pdo->exec('CREATE TABLE IF NOT EXISTS `game_runs` (
+        `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+        `user_id` INT UNSIGNED NOT NULL,
+        `game` VARCHAR(20) NOT NULL DEFAULT "clover",
+        `score` INT NOT NULL,
+        `heat` DECIMAL(14,2) NOT NULL,
+        `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (`id`),
+        KEY `idx_user_time` (`user_id`, `created_at`),
+        KEY `idx_game_user_time` (`game`, `user_id`, `created_at`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4');
+    ensure_column($pdo, 'game_runs', 'game', '`game` VARCHAR(20) NOT NULL DEFAULT "clover"');
+
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
     // 像素农场
     $pdo->exec('CREATE TABLE IF NOT EXISTS `farm_plots` (
         `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -483,6 +504,7 @@ function ensure_schema($pdo) {
         KEY `idx_subject` (`subject_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4');
 
+<<<<<<< HEAD
     // 每日答题 / 用户出题
     $pdo->exec('CREATE TABLE IF NOT EXISTS `quiz_questions` (
         `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -517,6 +539,8 @@ function ensure_schema($pdo) {
         UNIQUE KEY `uniq_user_day` (`user_id`, `quiz_date`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4');
 
+=======
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
     // 通用缓存（Bangumi 等）
     $pdo->exec('CREATE TABLE IF NOT EXISTS `cache` (
         `k` VARCHAR(64) NOT NULL,
@@ -958,7 +982,11 @@ function user_net_worth($pdo, $user, $prices = null) {
 function rank_map($pdo) {
     $prices = market_prices($pdo);
     $users = $pdo->query("SELECT id, nickname, avatar, heat, total_earned FROM users WHERE role <> 'super'")->fetchAll();
+<<<<<<< HEAD
     // 盈亏只统计模拟股票：已平仓/强平的 pnl + 持仓浮盈亏；农场、签到、答题都不算
+=======
+    // 盈亏只统计模拟股票：已平仓/强平的 pnl + 持仓浮盈亏；农场、签到、小游戏都不算
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
     $positions = $pdo->query(
         "SELECT user_id, symbol, direction, margin, leverage, entry_price, exit_price, pnl, status
          FROM positions WHERE status IN ('open', 'closed', 'liquidated')"

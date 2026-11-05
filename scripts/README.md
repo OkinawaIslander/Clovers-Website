@@ -11,5 +11,9 @@ php scripts/create_admin.php editor@example.com 'your-password' 编辑 admin
 
 - 需要先配置好 `api/config.php`，并导入 `database.sql` / 运行迁移；
 - `super` 是系统管理员，不出现在前台列表；
+<<<<<<< HEAD
 - `admin` 是次级管理员，可以审核投稿、发公告、删帖、管理题库；
+=======
+- `admin` 是次级管理员，可以审核投稿、发公告、删帖；
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 - 创建后请登录并修改密码。

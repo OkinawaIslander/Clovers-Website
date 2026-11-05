@@ -396,6 +396,15 @@ async function renderSelf(d) {
   document.getElementById("meTabs").hidden = false;
   document.getElementById("publicPanel").hidden = true;
 
+<<<<<<< HEAD
+=======
+  document.getElementById("gameStats").innerHTML = `
+    <div class="stat-card"><span>小游戏累计热力</span><strong>${fmt(d.game.total_heat, 0)}</strong></div>
+    <div class="stat-card"><span>今日小游戏热力</span><strong>${fmt(d.game.today_heat, 0)}</strong></div>
+    <div class="stat-card"><span>小游戏最高分</span><strong>${d.game.best}</strong></div>
+    <div class="stat-card"><span>游戏局数</span><strong>${d.game.runs}</strong></div>`;
+
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
   renderPositions(d.positions);
   renderHistory(d.history);
   renderPosts(d.posts);

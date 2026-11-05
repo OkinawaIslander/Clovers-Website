@@ -1,0 +1,471 @@
+:root {
+  --sv-ink: #eaf7ee;
+  --sv-dim: #8bb6a2;
+  --sv-green: #7ee2a8;
+  --sv-dark: #07120d;
+  --sv-panel: rgba(7, 18, 13, 0.9);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--sv-dark);
+  color: var(--sv-ink);
+  font-family: "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+.sv-body {
+  touch-action: none;
+  user-select: none;
+}
+
+#svCanvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: #07120d;
+}
+
+/* ---------- HUD ---------- */
+.sv-hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 18px;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(4, 10, 7, 0.8), transparent);
+  font-family: "Courier New", monospace;
+}
+
+.sv-hud-left {
+  width: min(360px, 42vw);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.sv-hp-row,
+.sv-xp-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+}
+
+.sv-hp-label {
+  color: #ff8fa8;
+  font-weight: 700;
+}
+
+.sv-bar {
+  height: 9px;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+
+.sv-bar i {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transition: width 0.12s linear;
+}
+
+.sv-hp i {
+  background: linear-gradient(90deg, #ff5c85, #ffb0c4);
+}
+
+.sv-xp {
+  height: 7px;
+}
+
+.sv-xp i {
+  background: linear-gradient(90deg, #4bd88f, #d7ff8a);
+  width: 0;
+}
+
+.sv-hp-text {
+  color: var(--sv-dim);
+  min-width: 74px;
+  text-align: right;
+}
+
+.sv-lv {
+  color: var(--sv-green);
+  min-width: 44px;
+  font-weight: 700;
+}
+
+.sv-hud-center {
+  text-align: center;
+  color: var(--sv-dim);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  padding-top: 2px;
+}
+
+.sv-hud-center strong {
+  display: block;
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  color: #fff;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  text-shadow: 0 0 18px rgba(126, 226, 168, 0.4);
+}
+
+.sv-hud-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.76rem;
+  color: var(--sv-dim);
+}
+
+.sv-hud-right b {
+  color: var(--sv-green);
+}
+
+.sv-back {
+  pointer-events: auto;
+  color: var(--sv-dim);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 0.72rem;
+  transition: 0.2s;
+}
+
+.sv-back:hover {
+  color: var(--sv-green);
+  border-color: var(--sv-green);
+}
+
+/* ---------- 遮罩 ---------- */
+.sv-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(54, 130, 89, 0.28), transparent 55%),
+    rgba(3, 9, 6, 0.86);
+  backdrop-filter: blur(5px);
+  overflow-y: auto;
+}
+
+.sv-overlay[hidden],
+.sv-modal[hidden] {
+  display: none !important;
+}
+
+.sv-start-card,
+.sv-end-card,
+.sv-pause-card {
+  width: min(620px, 94vw);
+  text-align: center;
+  padding: 30px 26px;
+  border: 1px solid rgba(126, 226, 168, 0.22);
+  background: var(--sv-panel);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+}
+
+.sv-logo {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  border: 2px solid rgba(126, 226, 168, 0.5);
+  margin-bottom: 8px;
+}
+
+.sv-kicker {
+  margin: 0 0 8px;
+  color: var(--sv-green);
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.26em;
+}
+
+.sv-start-card h1,
+.sv-end-card h2,
+.sv-pause-card h2 {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-shadow: 2px 0 rgba(126, 226, 168, 0.35), -2px 0 rgba(255, 143, 199, 0.28);
+}
+
+.sv-sub {
+  color: var(--sv-dim);
+  font-size: 0.86rem;
+  line-height: 1.8;
+  margin: 0 0 18px;
+}
+
+.sv-how {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 0 0 22px;
+}
+
+.sv-how > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.sv-how b {
+  font-size: 1.5rem;
+}
+
+.sv-how span {
+  color: var(--sv-green);
+  font-size: 0.8rem;
+}
+
+.sv-how em {
+  font-style: normal;
+  color: var(--sv-dim);
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.sv-btn {
+  display: inline-block;
+  padding: 13px 30px;
+  margin: 4px;
+  background: var(--sv-green);
+  color: #06120b;
+  border: 1px solid var(--sv-green);
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: 0.2s;
+}
+
+.sv-btn:hover {
+  background: transparent;
+  color: var(--sv-green);
+}
+
+.sv-btn-ghost {
+  background: transparent;
+  color: var(--sv-ink);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.sv-best,
+.sv-small {
+  color: var(--sv-dim);
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  margin: 14px 0 4px;
+}
+
+.sv-small {
+  font-size: 0.66rem;
+  opacity: 0.7;
+}
+
+/* ---------- 升级 ---------- */
+.sv-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(2, 7, 4, 0.82);
+  backdrop-filter: blur(4px);
+}
+
+.sv-modal-card {
+  width: min(900px, 96vw);
+  text-align: center;
+}
+
+.sv-modal-card h2 {
+  margin: 0 0 20px;
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+}
+
+.sv-upgrades {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.sv-upgrade {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 20px 18px;
+  min-height: 150px;
+  background: rgba(7, 18, 13, 0.96);
+  border: 1px solid rgba(126, 226, 168, 0.24);
+  color: var(--sv-ink);
+  cursor: pointer;
+  font-family: inherit;
+  transition: 0.2s;
+}
+
+.sv-upgrade:hover {
+  transform: translateY(-4px);
+  border-color: var(--sv-green);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+}
+
+.sv-upgrade .u-ico {
+  font-size: 1.8rem;
+}
+
+.sv-upgrade strong {
+  color: var(--sv-green);
+  font-size: 1rem;
+}
+
+.sv-upgrade span {
+  color: var(--sv-dim);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.sv-end-stats {
+  color: var(--sv-dim);
+  line-height: 2;
+  font-size: 0.9rem;
+}
+
+.sv-heat-result {
+  min-height: 1.6em;
+  color: var(--sv-green);
+  font-size: 0.86rem;
+  margin: 6px 0 14px;
+}
+
+/* 手机摇杆 */
+.sv-joystick {
+  position: fixed;
+  left: 22px;
+  bottom: 24px;
+  z-index: 16;
+  display: none;
+  touch-action: none;
+  user-select: none;
+}
+
+.sv-joy-base {
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  border: 2px solid rgba(126, 226, 168, 0.45);
+  background: radial-gradient(circle, rgba(126, 226, 168, 0.12), rgba(4, 12, 8, 0.45));
+  position: relative;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+.sv-joy-knob {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(126, 226, 168, 0.85);
+  border: 2px solid #d9ffe7;
+  box-shadow: 0 0 18px rgba(126, 226, 168, 0.5);
+  transition: transform 0.05s linear;
+}
+
+@media (pointer: coarse), (max-width: 820px) {
+  .sv-joystick {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .sv-hud {
+    padding: 10px 12px;
+  }
+
+  .sv-hud-left {
+    width: 48vw;
+  }
+
+  .sv-hud-center {
+    position: absolute;
+    left: 50%;
+    top: 12px;
+    transform: translateX(-50%);
+  }
+
+  .sv-hud-right span:not(:first-child) {
+    display: none;
+  }
+
+  .sv-joy-base {
+    width: 104px;
+    height: 104px;
+  }
+
+  .sv-joy-knob {
+    width: 48px;
+    height: 48px;
+  }
+
+  .sv-how,
+  .sv-upgrades {
+    grid-template-columns: 1fr;
+  }
+
+  .sv-how {
+    gap: 6px;
+  }
+
+  .sv-how > div {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    padding: 8px 10px;
+  }
+
+  .sv-upgrade {
+    min-height: 0;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .sv-upgrade span {
+    width: 100%;
+  }
+}

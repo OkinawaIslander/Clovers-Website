@@ -574,6 +574,130 @@ async function doCheckin() {
   }
 }
 
+<<<<<<< HEAD
+=======
+/* ---------- 四叶草热身 ---------- */
+const game = {
+  running: false,
+  score: 0,
+  time: 30,
+  timer: null,
+  spawn: null,
+  best: Number(localStorage.getItem("clovers_game_best") || 0),
+};
+
+function initClover() {
+  const bestEl = document.getElementById("gameBest");
+  if (bestEl) bestEl.textContent = game.best;
+
+  const startBtn = document.getElementById("startGameBtn");
+  const area = document.getElementById("gameArea");
+  if (!startBtn || !area) return;
+
+  startBtn.addEventListener("click", startClover);
+  area.addEventListener("click", (e) => {
+    const item = e.target.closest(".fx-game-item");
+    if (!item || !game.running) return;
+    const good = item.dataset.good === "1";
+    game.score = Math.max(0, game.score + (good ? 10 : -15));
+    document.getElementById("gameScore").textContent = game.score;
+    item.style.opacity = "0";
+    item.style.transform = "scale(1.4)";
+    setTimeout(() => item.remove(), 180);
+  });
+}
+
+function startClover() {
+  const area = document.getElementById("gameArea");
+  const overlay = document.getElementById("gameStartOverlay");
+  const tip = document.getElementById("gameTip");
+  if (game.running) return;
+
+  game.running = true;
+  game.score = 0;
+  game.time = 30;
+  document.getElementById("gameScore").textContent = "0";
+  document.getElementById("gameTime").textContent = "30";
+  overlay.style.display = "none";
+  area.querySelectorAll(".fx-game-item").forEach((el) => el.remove());
+
+  game.timer = setInterval(() => {
+    game.time--;
+    document.getElementById("gameTime").textContent = game.time;
+    if (game.time <= 0) endClover();
+  }, 1000);
+
+  game.spawn = setInterval(spawnClover, 620);
+  spawnClover();
+}
+
+function spawnClover() {
+  if (!game.running) return;
+  const area = document.getElementById("gameArea");
+  const good = Math.random() > 0.28;
+  const el = document.createElement("div");
+  el.className = "fx-game-item";
+  el.textContent = good ? "🍀" : "🍂";
+  el.dataset.good = good ? "1" : "0";
+
+  const size = 32 + Math.random() * 16;
+  el.style.fontSize = size + "px";
+  el.style.left = Math.random() * (area.clientWidth - size - 8) + "px";
+  el.style.top = Math.random() * (area.clientHeight - size - 8) + "px";
+
+  area.appendChild(el);
+  setTimeout(() => {
+    if (el.parentNode) {
+      el.style.opacity = "0";
+      setTimeout(() => el.remove(), 200);
+    }
+  }, 1500 + Math.random() * 700);
+}
+
+async function endClover() {
+  game.running = false;
+  clearInterval(game.timer);
+  clearInterval(game.spawn);
+  const area = document.getElementById("gameArea");
+  area.querySelectorAll(".fx-game-item").forEach((el) => el.remove());
+
+  const overlay = document.getElementById("gameStartOverlay");
+  overlay.style.display = "flex";
+  overlay.querySelector("button").textContent = "再玩一次";
+  overlay.querySelector("p").textContent = `本局得分：${game.score}`;
+
+  if (game.score > game.best) {
+    game.best = game.score;
+    localStorage.setItem("clovers_game_best", String(game.best));
+    document.getElementById("gameBest").textContent = game.best;
+  }
+
+  const tip = document.getElementById("gameTip");
+  if (!state.me || !state.me.data.logged_in) {
+    tip.textContent = `本局 ${game.score} 分。登录后得分可以兑换成热力值。`;
+    return;
+  }
+
+  if (game.score <= 0) {
+    tip.textContent = "本局没有得分，再来一局吧。";
+    return;
+  }
+
+  tip.textContent = "正在兑换热力值...";
+  try {
+    const res = await apiPost("game_score.php", { score: game.score });
+    if (res.ok) {
+      tip.textContent = `本局 ${game.score} 分 → +${fmt(res.data.earned, 0)} 热力值（今日还可兑换 ${fmt(res.data.remaining_cap, 0)}）`;
+      await Promise.all([loadMe(true), loadFeed()]);
+    } else {
+      tip.textContent = res.msg || "兑换失败";
+    }
+  } catch (e) {
+    tip.textContent = e.message;
+  }
+}
+
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 /* ---------- 标签页 ---------- */
 function initTabs() {
   $$(".fx-tab").forEach((tab) => {

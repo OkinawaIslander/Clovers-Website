@@ -1,7 +1,11 @@
 -- ============================================================
 -- Clovers' 动漫协会 数据库结构（完整版）
 --
+<<<<<<< HEAD
 -- 用法：在宝塔「数据库」里建好库（例如 members，全小写），
+=======
+-- 用法：在宝塔「数据库」里建好库（例如 clovers，全小写），
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 --       在 phpMyAdmin 里【选中这个库】后导入本文件。
 --       本文件不包含 CREATE DATABASE / USE。
 --
@@ -188,6 +192,22 @@ CREATE TABLE IF NOT EXISTS `activities` (
   KEY `idx_user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+<<<<<<< HEAD
+=======
+-- 小游戏记录
+CREATE TABLE IF NOT EXISTS `game_runs` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` INT UNSIGNED NOT NULL,
+  `game` VARCHAR(20) NOT NULL DEFAULT 'clover',
+  `score` INT NOT NULL,
+  `heat` DECIMAL(14,2) NOT NULL,
+  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_user_time` (`user_id`, `created_at`),
+  KEY `idx_game_user_time` (`game`, `user_id`, `created_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 -- 像素农场
 CREATE TABLE IF NOT EXISTS `farm_plots` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -255,6 +275,7 @@ CREATE TABLE IF NOT EXISTS `anime_ratings` (
   KEY `idx_subject` (`subject_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+<<<<<<< HEAD
 -- 每日答题 / 用户出题
 CREATE TABLE IF NOT EXISTS `quiz_questions` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -289,6 +310,8 @@ CREATE TABLE IF NOT EXISTS `quiz_attempts` (
   UNIQUE KEY `uniq_user_day` (`user_id`, `quiz_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+=======
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 -- 缓存 / 设置
 CREATE TABLE IF NOT EXISTS `cache` (
   `k` VARCHAR(64) NOT NULL,

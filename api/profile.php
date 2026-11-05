@@ -90,7 +90,11 @@ $st = $pdo->prepare('SELECT * FROM activities WHERE user_id = ? ORDER BY id DESC
 $st->execute(array($id));
 $labels = array(
     'open' => '开仓', 'close' => '平仓', 'liquidation' => '强平',
+<<<<<<< HEAD
     'checkin' => '签到', 'game' => '旧版小游戏', 'join' => '加入',
+=======
+    'checkin' => '签到', 'game' => '小游戏', 'join' => '加入',
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
     'post' => '留言', 'submit' => '投稿', 'comment' => '评论',
     'admin' => '管理', 'system' => '公告',
 );

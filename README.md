@@ -1,11 +1,19 @@
 # Clovers' 动漫协会 官网
 
+<<<<<<< HEAD
 含 **QQ 邮箱验证码注册**、**四部门主页 + 群二维码**、**热力交易所（模拟 FX）**、**每季新番 + 评论 / 评分**、**公告 / 投票 / 社刊投稿 / 每日答题**、**像素农场**，以及带农场 / 答题热力、留言、评论、投稿管理的「我的」页面。
+=======
+含 **QQ 邮箱验证码注册**、**四部门主页 + 群二维码**、**热力交易所（模拟 FX）**、**每季新番 + 评论 / 评分**、**公告 / 投票 / 社刊投稿**、**四叶草幸存者**、**像素农场**，以及带小游戏热力、留言、评论、投稿管理的「我的」页面。
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 
 ## 开源说明
 
 - 这是一个可以直接部署到 PHP + MySQL 的整站项目，没有前端构建步骤；
+<<<<<<< HEAD
 - `api/config.php`、`uploads/`、`data/bangumi-data.json`、海报原图等本地 / 大文件已被 `.gitignore` 忽略；
+=======
+- `api/config.php`、`uploads/`、`data/bangumi-data.json`、海报原图等本地/大文件已被 `.gitignore` 忽略；
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 - 不含默认管理员密码。首次部署请复制 `api/config.example.php`，再运行 `scripts/create_admin.php`；
 - 许可证：[MIT](LICENSE)。
 
@@ -15,13 +23,22 @@
 clovers-site/
 ├── index.html            # 首页（部门 / 交易所入口 / 留言板 / 排行榜 / 登录）
 ├── game.html             # 热力交易所：行情 / 持仓 / 排行榜 / 玩法（全站动态已移到首页）
+<<<<<<< HEAD
 ├── profile.html          # 我的：热力值、农场、答题、持仓、留言、评论、投稿、投票、设置
+=======
+├── profile.html          # 我的：热力值、小游戏、持仓、留言、评论、投稿、投票、设置
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 ├── vote.html             # 投票（管理员发起，成员一人一票）
 ├── submit.html           # 社刊投稿（上传文件 + 我的投稿）
 ├── works.html            # 投稿展示（仅管理员审核通过的稿件）
 ├── anime.html            # 本季新番（Bangumi 链接 + 每部番评论）
+<<<<<<< HEAD
 ├── farm.html             # 像素农场（种菜 / 偷菜 / 热力值买卖）
 ├── quiz.html             # 每日答题 / 用户出题
+=======
+├── survivors.html        # 四叶草幸存者（WASD / 手机摇杆生存小游戏）
+├── farm.html             # 像素农场（种菜 / 偷菜 / 热力值买卖）
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 ├── xuanbian.html         # 宣编部（含 QQ 群二维码）
 ├── zhaiwu.html           # 宅舞部
 ├── wota.html             # WOTA艺部
@@ -30,8 +47,13 @@ clovers-site/
 │   ├── style.css         # 全站样式
 │   ├── game.css          # 交易所（深色终端）
 │   ├── pages.css         # 个人主页 / 新番 / 投稿展示
+<<<<<<< HEAD
 │   ├── farm.css          # 像素农场
 │   └── quiz.css          # 每日答题
+=======
+│   ├── survivors.css     # 四叶草幸存者
+│   └── farm.css          # 像素农场
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 ├── js/
 │   ├── common.js         # 公共工具（接口、登录态、toast、动态列表）
 │   ├── app.js            # 首页
@@ -41,8 +63,13 @@ clovers-site/
 │   ├── submit.js         # 社刊投稿
 │   ├── works.js          # 投稿展示
 │   ├── anime.js          # 新番
+<<<<<<< HEAD
 │   ├── farm.js           # 像素农场
 │   ├── quiz.js           # 每日答题
+=======
+│   ├── survivors.js      # 四叶草幸存者
+│   ├── farm.js           # 像素农场
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 │   └── dept.js           # 部门页导航
 ├── api/
 │   ├── config.php        # ★ 数据库 / SMTP / 管理员 / 经济参数
@@ -51,7 +78,11 @@ clovers-site/
 │   ├── health.php        # ★ 一键自检
 │   ├── register.php / login.php / logout.php / me.php
 │   ├── send_code.php     # 邮箱验证码
+<<<<<<< HEAD
 │   ├── market.php / trade.php / checkin.php
+=======
+│   ├── market.php / trade.php / checkin.php / game_score.php
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 │   ├── leaderboard.php / feed.php / profile.php
 │   ├── posts.php         # 留言板（管理员可删）
 │   ├── announcements.php # 公告
@@ -64,12 +95,19 @@ clovers-site/
 │   ├── account.php       # 修改资料 / 头像 / 密码
 │   ├── anime.php         # 新番列表 / 评论 / Bangumi 导入 / 手动添加
 │   ├── farm.php          # 像素农场（种植 / 收获 / 偷菜）
+<<<<<<< HEAD
 │   ├── quiz.php          # 每日答题 / 出题 / 交卷
+=======
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 │   ├── poster.php        # 招新海报缩略图（GD 可用时自动压缩）
 │   ├── admin.php         # 管理员高级接口（会话或 X-Admin-Key）
 │   └── qr.php            # 部门群二维码（按 PNG 输出）
 ├── data/
+<<<<<<< HEAD
 │   └── bangumi-data.json # 新番本地数据快照（可选，约 7.9MB，仓库不提交）
+=======
+│   └── bangumi-data.json # 新番本地数据快照（约 7.9MB，离线导入用）
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 ├── scripts/
 │   └── create_admin.php  # 命令行创建 / 重置管理员
 ├── api/config.example.php # 配置模板（复制为 api/config.php）
@@ -87,7 +125,11 @@ clovers-site/
 
 ### 1. 老站升级（已经有数据）
 
+<<<<<<< HEAD
 上传全部文件，然后打开：
+=======
+上传项目文件（`api/config.php` 只在服务器本地创建，不要提交），然后打开：
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 
 ```
 https://your-domain.com/api/migrate.php?key=你的DIAG_KEY
@@ -96,7 +138,11 @@ https://your-domain.com/api/migrate.php?key=你的DIAG_KEY
 会自动补 `users` 的 `role` / `heat` 等字段，并创建 `positions`、`market`、`posts`、`anime`、
 `announcements`、`polls`、`submissions` 等表，**不会删除已有数据**。看到「升级完成」即可。
 
+<<<<<<< HEAD
 > 结构版本 12 新增每日答题题库 / 答题记录表 `quiz_questions`、`quiz_attempts`；结构版本 11 新增新番评分表 `anime_ratings`；结构版本 10 迁移旧投稿分类；结构版本 9 新建农场表。
+=======
+> 结构版本 11 新增新番评分表 `anime_ratings`；结构版本 10 迁移旧投稿分类；结构版本 9 新建农场表、给小游戏记录加 `game` 字段。
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 
 > 也可以直接访问首页或交易所，第一次请求时会自动建表；`migrate.php` 只是更直观的检查入口。
 
@@ -134,7 +180,11 @@ define('ADMIN_EMAILS', array('admin@example.com'));
 define('ADMIN_API_KEY', '改成别人猜不到的值');  // 外部调用 api/admin.php 的密钥
 ```
 
+<<<<<<< HEAD
 管理员在首页留言、番剧评论旁会看到「删除」按钮，也能管理题库。
+=======
+管理员在首页留言、番剧评论旁会看到「删除」按钮。
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 
 **系统管理员**（`role = super`）是最高级账号，不出现在排行榜、公开主页、留言/评论/动态等任何前台列表里；
 它可以在 **我的 → 设置 → 管理员授权** 里把普通成员设为次级管理员（`role = admin`），也可以取消。
@@ -159,7 +209,11 @@ GitHub 同理，把 remote 换成 `https://github.com/你的用户名/你的仓�
 
 ## 热力交易所规则
 
+<<<<<<< HEAD
 - **热力值来源**：像素农场买卖、每日签到（100 起，连续 +20，最多 200）、每日答题、管理员发放。
+=======
+- **热力值来源**：幸存者（每天上限 1200）、像素农场买卖、每日签到（100 起，连续 +20，最多 200）、管理员发放。
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 - **交易时段**：每天 **12:00 - 18:00** 才能买入 / 做空；平仓随时可以，但受杠杆冷却限制。
 - **杠杆与冷却**：1x = 24h、2x = 36h、4x = 48h、5x = 60h、10x = 72h。
 - **强平**：账户权益（保证金 + 浮盈亏）跌到保证金的 **50%** 自动结算，退回剩余权益。
@@ -168,7 +222,11 @@ GitHub 同理，把 remote 换成 `https://github.com/你的用户名/你的仓�
 - **走势图**：点每个部门行情行里的「走势」，可以切换 **5 分钟 / 每小时 / 每天** 折线，指针放在线上会显示具体时间和当时的热力值。
 - 纯娱乐模拟盘，不涉及真实货币；每个部门基础热力值 **1000**，行情由服务器生成。
 
+<<<<<<< HEAD
 经济参数都在 `api/config.php`：`START_HEAT`、`QUIZ_DAILY_SUBMIT`、`QUIZ_REWARD_PER_CORRECT`、`FARM_CROPS`、`MARKET_DAILY_VOL`、`MARKET_TRADE_IMPACT`、`TRADE_OPEN_START/END` 等。
+=======
+经济参数都在 `api/config.php`：`START_HEAT`、`GAME_DAILY_CAP`、`SURVIVORS_DAILY_CAP`、`FARM_CROPS`、`MARKET_DAILY_VOL`、`MARKET_TRADE_IMPACT`、`TRADE_OPEN_START/END` 等。
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 
 ---
 
@@ -208,7 +266,11 @@ lnP(t+1) = lnP(t) + r(t)
   做空反过来。UI 的买入价/卖出价和「点差成本」就是从这里来的。
 - **价格边界**：限制在基准价的 0.3x ~ 3.5x，防止极端情况下跑飞。
 - **历史**：每分钟写一条 `market_history`，所以 5 分钟/小时/天走势图都有真实采样点。
+<<<<<<< HEAD
 - **累计盈亏只算股票**：已平仓/强平的 `positions.pnl` + 当前持仓浮盈亏；签到、答题、农场、买种子、管理员发放都不算进去。
+=======
+- **累计盈亏只算股票**：已平仓/强平的 `positions.pnl` + 当前持仓浮盈亏；签到、小游戏、农场、买种子、管理员发放都不算进去。
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 - **收益率**：累计股票盈亏 ÷ 所有仓位保证金合计，避免把签到和农场收入算进分母。
 
 强平、杠杆逻辑不变，只是成交价现在含点差，开仓会立刻显示一点浮亏（和真实市场一样）。
@@ -267,7 +329,11 @@ lnP(t+1) = lnP(t) + r(t)
 
 `profile.html`（导航「我的」）分标签页：
 
+<<<<<<< HEAD
 - 概览：净资产、排名、动态；
+=======
+- 概览：净资产、排名、小游戏累计/今日热力、最高分、动态；
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 - 持仓与交易：当前持仓、平仓、历史交易；
 - 留言 / 评论：自己发过的留言和番剧评论（被管理员删除的会标出来）；
 - 投稿：我的投稿、下载、删除；管理员可看全部并审核；
@@ -278,9 +344,27 @@ lnP(t+1) = lnP(t) + r(t)
 
 ---
 
+<<<<<<< HEAD
 ## 像素农场
 
 首页 `#game`「热力中心」把交易所和像素农场放在同一个深色板块里；`game.html` 里也有像素农场入口。
+=======
+## 小游戏
+
+首页 `#game`「热力中心」把交易所和两个小游戏放在同一个深色板块里；`game.html` 里也有小游戏快捷入口。
+
+### 四叶草幸存者
+
+`survivors.html`：
+
+- WASD / 方向键移动；手机显示左下角虚拟摇杆；
+- 自动攻击最近的敌人，🪄 光棒环绕身体；
+- 击杀掉经验，升级时三选一词条（伤害 / 攻速 / 移速 / 生命 / 穿透 / 散射 / 光棒）；
+- 活过 3 分钟，2 分钟刷 Boss；最高纪录存在浏览器 localStorage；
+- 结算时按「存活秒数 ×4 + 击杀 ×2 + 等级 ×10」提交 `game_score.php`，每天最多换 1200 热力值。
+
+### 像素农场
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 
 `farm.html`：
 
@@ -292,6 +376,7 @@ lnP(t+1) = lnP(t) + r(t)
 
 ---
 
+<<<<<<< HEAD
 ## 每日答题
 
 `quiz.html`（导航「答题」）：
@@ -312,6 +397,12 @@ lnP(t+1) = lnP(t) + r(t)
 
 - 从 `game.html` 的小板块移到首页 `#feed`，加载 `api/feed.php`；首页只显示 **最近 7 条**。
 - 开仓、平仓、签到、答题、留言、投稿、评论、农场动态都会汇总；
+=======
+## 全站动态
+
+- 从 `game.html` 的小板块移到首页 `#feed`，加载 `api/feed.php`；
+- 开仓、平仓、签到、小游戏、留言、投稿、评论、农场动态都会汇总；
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 - 动态、留言、番剧评论、排行榜、作品等显示用户的地方会带头像（`avatarHtml()`），没有头像时显示昵称首字。
 
 ---
@@ -322,7 +413,11 @@ lnP(t+1) = lnP(t) + r(t)
 - 支持按 **播出时间 / 评分 / 评论人数** 排序，正序、倒序切换；
 - 评分等级：0 未评分 / 1 拉完了 / 2 NPC / 3 人上人 / 4 顶级 / 5 夯；登录后每人每部只能有一个评分，重复打分覆盖。
 - 管理员点「从 Bangumi 导入本季」时，服务端按顺序尝试：
+<<<<<<< HEAD
   1. **本地快照** `data/bangumi-data.json`（可选，7.9MB，完全离线可用，速度最快；仓库不提交）；
+=======
+  1. **本地快照** `data/bangumi-data.json`（随站点上传，7.9MB，完全离线可用，速度最快）；
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
   2. 官方 API `api.bgm.tv`；
   3. 国内可访问的 **bangumi-data 静态镜像**（jsDelivr / unpkg / GitHub raw）；
   4. 都失败时用「手动添加」，评论和评分功能照常。

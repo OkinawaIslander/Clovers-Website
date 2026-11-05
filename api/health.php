@@ -76,7 +76,11 @@ if ($pdo) {
         $add('users 表', $hasUsers ? 'ok' : 'fail', $hasUsers ? '存在' : '不存在', '在 phpMyAdmin 里选中该库，导入 database.sql');
         $add('email_codes 表', $hasCodes ? 'ok' : 'fail', $hasCodes ? '存在' : '不存在', '在 phpMyAdmin 里选中该库，导入 database.sql');
 
+<<<<<<< HEAD
         $needTables = array('posts', 'market', 'positions', 'activities', 'anime', 'anime_comments', 'announcements', 'polls', 'poll_options', 'poll_votes', 'submissions');
+=======
+        $needTables = array('posts', 'market', 'positions', 'activities', 'game_runs', 'anime', 'anime_comments', 'announcements', 'polls', 'poll_options', 'poll_votes', 'submissions');
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
         $missingTables = array_values(array_diff($needTables, $tables));
         $add(
             '交易 / 留言 / 新番数据表',

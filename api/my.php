@@ -1,6 +1,10 @@
 <?php
 /**
+<<<<<<< HEAD
  * 我的主页数据：热力值 / 农场 / 答题 / 持仓 / 留言 / 评论 / 投稿 / 投票
+=======
+ * 我的主页数据：热力值 / 小游戏 / 持仓 / 留言 / 评论 / 投稿 / 投票
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
  */
 require_once __DIR__ . '/_lib.php';
 
@@ -13,6 +17,17 @@ $prices = market_prices($pdo);
 $ranks = rank_map($pdo);
 $mine = $ranks[$uid] ?? null;
 
+<<<<<<< HEAD
+=======
+// 小游戏统计
+$st = $pdo->prepare('SELECT COUNT(*) AS runs, COALESCE(SUM(heat),0) AS total_heat, COALESCE(MAX(score),0) AS best FROM game_runs WHERE user_id = ?');
+$st->execute(array($uid));
+$game = $st->fetch();
+$st = $pdo->prepare('SELECT COALESCE(SUM(heat),0) FROM game_runs WHERE user_id = ? AND DATE(created_at) = CURDATE()');
+$st->execute(array($uid));
+$gameToday = (float) $st->fetchColumn();
+
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 // 留言
 $st = $pdo->prepare('SELECT id, content, is_deleted, created_at FROM posts WHERE user_id = ? ORDER BY id DESC LIMIT 50');
 $st->execute(array($uid));
@@ -130,6 +145,15 @@ json_ok(array(
     'profit' => $mine ? $mine['profit'] : 0,
     'profit_pct' => $mine ? $mine['profit_pct'] : 0,
     'checkin' => checkin_info($user),
+<<<<<<< HEAD
+=======
+    'game' => array(
+        'runs' => (int) $game['runs'],
+        'total_heat' => round((float) $game['total_heat'], 2),
+        'today_heat' => round($gameToday, 2),
+        'best' => (int) $game['best'],
+    ),
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
     'positions' => user_positions($pdo, $uid, $prices),
     'history' => $history,
     'posts' => $posts,

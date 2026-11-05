@@ -336,6 +336,82 @@
   cursor: not-allowed;
 }
 
+<<<<<<< HEAD
+=======
+/* 热身小游戏 */
+.fx-warmup {
+  margin-top: 26px;
+  background: #111c26;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.fx-warmup-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.fx-warmup-head h3 {
+  font-size: 1.02rem;
+  color: #e9f4ef;
+  margin-bottom: 4px;
+}
+
+.fx-mini-stats {
+  display: flex;
+  gap: 18px;
+  color: #7f95a1;
+  font-size: 0.82rem;
+  align-items: center;
+}
+
+.fx-mini-stats strong {
+  color: #e9f4ef;
+  font-size: 1rem;
+}
+
+.fx-game-area {
+  position: relative;
+  height: 300px;
+  border-radius: 12px;
+  border: 2px solid rgba(76, 175, 110, 0.45);
+  background: radial-gradient(ellipse at 50% 30%, #14301f 0%, #0d1a14 70%);
+  overflow: hidden;
+}
+
+.fx-game-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(6, 12, 9, 0.55);
+  text-align: center;
+  color: #9fb6c2;
+  font-size: 0.85rem;
+}
+
+.fx-game-item {
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.12s, opacity 0.2s;
+  z-index: 2;
+  animation: fxPop 0.2s ease;
+}
+
+@keyframes fxPop {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 /* 持仓 */
 .fx-position {
   display: grid;
@@ -872,7 +948,11 @@
 
 .fx-game-links {
   display: grid;
+<<<<<<< HEAD
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+=======
+  grid-template-columns: repeat(2, 1fr);
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
   gap: 8px;
   margin-top: 14px;
 }

@@ -5,6 +5,11 @@
  * 用法：
  *   php scripts/create_admin.php admin@example.com 'password' 系统管理员 super
  *   php scripts/create_admin.php editor@example.com 'password' 编辑 admin
+<<<<<<< HEAD
+=======
+ *
+ * 最后一个参数是角色：super（系统管理员）或 admin（次级管理员）。
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
  */
 if (PHP_SAPI !== 'cli') {
     http_response_code(403);

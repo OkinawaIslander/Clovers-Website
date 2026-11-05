@@ -38,6 +38,10 @@ define('ADMIN_API_KEY', 'change-this-admin-key');
 // ========== 热力值经济 ==========
 define('START_HEAT', 1000);
 define('MARKET_BASE_PRICE', 1000);
+<<<<<<< HEAD
+=======
+define('GAME_DAILY_CAP', 3000);
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 define('CHECKIN_BASE', 100);
 define('MAX_OPEN_POSITIONS', 8);
 define('MIN_MARGIN', 10);
@@ -51,9 +55,14 @@ define('UPLOAD_MAX_MB', 20);
 define('AVATAR_MAX_MB', 2);
 define('SUBMISSION_CATEGORIES', array('cosplay摄影', '文章', '绘画插画', '其他'));
 
+<<<<<<< HEAD
 // ========== 小游戏 / 答题 ==========
 define('QUIZ_DAILY_SUBMIT', 3);
 define('QUIZ_REWARD_PER_CORRECT', 30);
+=======
+// ========== 小游戏 ==========
+define('SURVIVORS_DAILY_CAP', 1200);
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 define('FARM_PLOTS', 4);
 define('FARM_STEAL_RATE', 0.2);
 define('FARM_STEAL_DAILY_CAP', 500);

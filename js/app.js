@@ -440,7 +440,11 @@ async function loadHomeFeed() {
   const list = $("#feedList");
   if (!list) return;
   try {
+<<<<<<< HEAD
     const res = await apiGet("feed.php?limit=7");
+=======
+    const res = await apiGet("feed.php?limit=40");
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
     if (!res.ok) {
       list.innerHTML = '<li class="feed-empty">动态加载失败</li>';
       return;

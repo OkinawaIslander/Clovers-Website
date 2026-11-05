@@ -12,11 +12,18 @@ uploads/*
 # 体积较大的本地番剧快照（可按 data/README.txt 自行下载）
 data/bangumi-data.json
 
+<<<<<<< HEAD
 # 已下线 / 未使用的旧文件与大图
 images/海报.png
 survivors.html
 js/survivors.js
 css/survivors.css
+=======
+# 未使用的旧海报 / 旧小游戏占位文件
+images/海报.png
+js/galgame.js
+css/galgame.css
+>>>>>>> af6ae29cafaf5eff20595f25ee0da3ec8cf2eef0
 
 # 依赖 / 编辑器 / 系统文件
 node_modules/
